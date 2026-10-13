@@ -62,6 +62,10 @@
   .rolecard b { font-size: 1.2em; }
   .rolecard span { color: var(--muted); font-size: .95em; line-height: 1.45; }
   .rolecard em { font-style: normal; font-weight: 700; color: var(--c); font-size: .9em; margin-top: auto; padding-top: 6px; }
+  .trainlink { display: flex; align-items: center; gap: 14px; margin: 18px 0 0; padding: 14px 16px; border-radius: 14px; border: 2px solid #f5a524; background: var(--warn-soft); color: var(--text); text-decoration: none; }
+  .trainlink .ic { font-size: 1.8em; }
+  .trainlink small { display: block; color: var(--muted); }
+  .trainlink em { margin-left: auto; font-style: normal; font-weight: 800; color: var(--warn); white-space: nowrap; }
   .uinote { display: flex; gap: 10px; align-items: flex-start; margin: 18px 0 0; padding: 12px 14px; border-radius: 12px; background: var(--accent-soft); font-size: .95em; }
   .uinote svg { color: var(--accent); font-size: 1.3em; margin-top: 2px; }
 
@@ -240,7 +244,7 @@
     @page { margin: 12mm; }
     :root { --bg: #fff; --shadow: none; }
     body { font-size: 10.5pt; line-height: 1.45; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .top, .roles, .noprint { display: none !important; }
+    .top, .roles, .noprint, .trainlink { display: none !important; }
     .hero { padding: 0 0 6px; }
     .hero h1 { font-size: 20pt; }
     .hero .lead { margin-bottom: 8px; }
@@ -262,7 +266,7 @@
     <img src="ihi.png" alt="ÍHÍ">
     <div class="name">
       <span class="lang-is">Leiðbeiningar</span><span class="lang-en">Operator guide</span>
-      <small>ÍHÍ Game Entry for Hydra · 1.2.4</small>
+      <small>ÍHÍ Game Entry for Hydra · 1.3.0</small>
     </div>
     <span class="sp"></span>
     <span class="seg" role="group" aria-label="Tungumál / Language">
@@ -298,6 +302,7 @@
         <em>Öll tæki →</em>
       </a>
     </nav>
+    <a class="trainlink" href="training/"><span class="ic">🎓</span><span><b>Æfingasvæði með kennara</b><small>Æfðu skráninguna í prufuleik – kennarinn leiðir þig í gegnum hvert verk. Ekkert fer í Hydra.</small></span><em>Opna →</em></a>
     <div class="uinote"><svg class="i"><use href="#i-tap"/></svg><div><b>Smelltu eða ýttu:</b> Allt er gert með því að smella með músinni eða ýta á skjáinn. Hnappar eru nefndir eins og þeir birtast á skjánum, til dæmis <span class="ui">Afturkalla</span>, og örin <span class="then">›</span> sýnir röðina. Flýtilyklar (<kbd>G</kbd>) eru valfrjálsir og sýndir í gráum línum. Skjárinn er á íslensku; <span class="ui">EN</span> efst skiptir yfir í ensku.</div></div>
   </section>
 
@@ -568,6 +573,7 @@
         <em>Fixes →</em>
       </a>
     </nav>
+    <a class="trainlink" href="training/?lang=en"><span class="ic">🎓</span><span><b>Training site with a teacher</b><small>Practise in a sample game – the teacher walks you through each task. Nothing goes to Hydra.</small></span><em>Open →</em></a>
     <div class="uinote"><svg class="i"><use href="#i-tap"/></svg><div><b>Click or tap:</b> everything is done by clicking with the mouse or tapping the screen; the arrow <span class="then">›</span> shows the order. Keyboard shortcuts (<kbd>G</kbd>) are optional and shown in grey lines. The screen opens in Icelandic: press <span class="ui">EN</span> at the top (or <span class="ui">⋯</span> on the phone screen) for English. Penalty codes and infractions are always in English, as in Hydra.</div></div>
   </section>
 
@@ -798,7 +804,7 @@
 </main>
 
 <footer>
-  <span>ÍHÍ Game Entry for Hydra · 1.2.4</span>
+  <span>ÍHÍ Game Entry for Hydra · 1.3.0</span>
   <a href="./"><span class="lang-is">Uppsetning</span><span class="lang-en">Install</span></a>
 </footer>
 

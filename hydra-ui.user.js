@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         ÍHÍ Game Entry for Hydra
 // @namespace    https://sturlasnaer.github.io/hydra-ui-app/
-// @version      1.2.3
+// @version      1.2.4
 // @description  ÍHÍ's game entry screen for IIHF Hydra. Open https://ihi.hydra.iihf.com/IIHF_Core/hydra-ui (shots bench: ?mode=bench) after logging in.
 // @match        https://*.hydra.iihf.com/IIHF_Core/hydra-ui*
 // @run-at       document-end

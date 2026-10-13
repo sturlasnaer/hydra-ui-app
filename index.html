@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ÍHÍ Game Entry</title>
+<meta name="description" content="Install ÍHÍ's game entry screen for IIHF Hydra on a laptop, iPad or Android tablet.">
+<link rel="icon" href="ihi.png">
+<style>
+  :root {
+    --bg: #eef2f6; --surface: #fff; --surface-2: #f6f8fb; --border: #d5dde7; --text: #0f1b2d; --muted: #5b6b80;
+    --accent: #0b4ea2; --accent-ink: #fff; --ok: #138a47; --warn: #b45309; --code: #0f1b2d; --code-bg: #eef2f6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b111a; --surface: #131c28; --surface-2: #1a2533; --border: #2a3748; --text: #e8eef6; --muted: #94a3b8;
+      --accent: #4c8dff; --accent-ink: #0b111a; --ok: #39c477; --warn: #f5a524; --code: #e8eef6; --code-bg: #0b111a;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 860px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+  header img { width: 56px; height: 56px; object-fit: contain; }
+  h1 { font-size: 1.6em; margin: 0; }
+  h2 { font-size: 1.2em; margin: 0 0 8px; }
+  .muted { color: var(--muted); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px; margin: 14px 0; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin: 18px 0 4px; }
+  .tabs button { font: inherit; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); cursor: pointer; }
+  .tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  ol { padding-left: 22px; margin: 8px 0; }
+  li { margin: 6px 0; }
+  code, textarea { font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+  textarea { width: 100%; height: 92px; padding: 10px; border-radius: 10px; border: 1px solid var(--border); background: var(--code-bg); color: var(--code); resize: vertical; word-break: break-all; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin: 8px 0; }
+  .btn { display: inline-flex; align-items: center; gap: 6px; font: inherit; font-weight: 600; padding: 9px 14px; border-radius: 10px; border: 1px solid var(--border); background: var(--surface-2); color: var(--text); text-decoration: none; cursor: pointer; }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .drag { border-style: dashed; }
+  .note { border-left: 4px solid var(--warn); padding: 8px 12px; background: var(--surface-2); border-radius: 8px; margin: 10px 0; }
+  .ok { color: var(--ok); font-weight: 700; }
+  footer { margin-top: 28px; font-size: 0.85em; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="ihi.png" alt="ÍHÍ">
+    <div>
+      <h1>ÍHÍ Game Entry for Hydra</h1>
+      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.0.0 · built 2026-10-13 02:55 UTC</div>
+    </div>
+  </header>
+
+  <div class="card">
+    <b>How it works.</b> You log in to Hydra as usual. The game entry screen then runs <i>inside your logged-in Hydra page</i>:
+    everything is saved straight into Hydra (Orion and Gemini Light). Nothing goes anywhere else. You need a Hydra login with
+    rights to the game.
+  </div>
+
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-tab="ipad">iPad</button>
+    <button role="tab" aria-selected="false" data-tab="android">Android</button>
+    <button role="tab" aria-selected="false" data-tab="laptop">Laptop</button>
+  </div>
+
+  <section data-panel="ipad">
+    <div class="card">
+      <h2>Option 1 — Userscripts app (recommended: works like an app icon)</h2>
+      <ol>
+        <li>Install the free <b>Userscripts</b> app from the App Store, open it once and pick a folder for scripts.</li>
+        <li>In Settings → Safari → Extensions, turn <b>Userscripts</b> on and allow it on <code>ihi.hydra.iihf.com</code> (or "All websites").</li>
+        <li>In Safari, open <a href="hydra-ui.user.js">hydra-ui.user.js</a>, tap the <b>Userscripts</b> icon in the address bar and choose <b>Install</b>.</li>
+        <li>Log in to Hydra, then open <code>https://ihi.hydra.iihf.com/IIHF_Core/hydra-ui</code>. Tap Share → <b>Add to Home Screen</b> for an icon.
+          The shots bench is <code>…/IIHF_Core/hydra-ui?mode=bench</code>.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2>Option 2 — a bookmark (no app needed)</h2>
+      <ol>
+        <li>Copy the bookmark code below (<b>Copy</b> button).</li>
+        <li>In Safari, bookmark any page (Share → Add Bookmark), name it <b>Hydra game entry</b>, save it in Favourites.</li>
+        <li>Edit that bookmark (Bookmarks → Edit), delete its address and paste the copied code.</li>
+        <li>Log in to Hydra, then tap the bookmark. Do the same with the second code for the shots bench.</li>
+      </ol>
+      <div data-bookmarklets></div>
+    </div>
+  </section>
+
+  <section data-panel="android" hidden>
+    <div class="card">
+      <h2>Chrome — a bookmark</h2>
+      <ol>
+        <li>Copy the bookmark code below.</li>
+        <li>In Chrome, bookmark any page (☆), then edit the bookmark: name <b>Hydra game entry</b>, paste the code as the URL.</li>
+        <li>Log in to Hydra. To start: type <b>Hydra game entry</b> in the address bar and tap the bookmark in the suggestions.</li>
+      </ol>
+      <div data-bookmarklets></div>
+    </div>
+    <div class="card">
+      <h2>Firefox — Tampermonkey (opens by itself)</h2>
+      <ol>
+        <li>Install Firefox for Android, then the <b>Tampermonkey</b> add-on.</li>
+        <li>Open <a href="hydra-ui.user.js">hydra-ui.user.js</a> and install it in Tampermonkey.</li>
+        <li>Log in to Hydra and open <code>https://ihi.hydra.iihf.com/IIHF_Core/hydra-ui</code> (bench: add <code>?mode=bench</code>).</li>
+      </ol>
+      <div class="note">Kiwi Browser is no longer maintained (discontinued January 2025), so it gets no security fixes. Please use Chrome or Firefox instead.</div>
+    </div>
+  </section>
+
+  <section data-panel="laptop" hidden>
+    <div class="card">
+      <h2>Chrome or Edge — the extension (adds a button to Hydra's menu)</h2>
+      <ol>
+        <li>Download <a class="btn primary" href="hydra-ui-extension.zip" download>hydra-ui-extension.zip</a> and unzip it.</li>
+        <li>Open <code>chrome://extensions</code> (Edge: <code>edge://extensions</code>), switch on <b>Developer mode</b>, click <b>Load unpacked</b> and pick the unzipped folder.</li>
+        <li>Log in to Hydra and click <b>Open game entry ↗</b> at the top right of Hydra's menu.</li>
+        <li>New version: download again, replace the folder, and press the reload icon on the extension.</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2>…or the bookmark</h2>
+      <p class="muted">Drag a button to the bookmarks bar, log in to Hydra and click it. Always loads the newest version.</p>
+      <div data-bookmarklets data-drag></div>
+    </div>
+  </section>
+
+  <footer class="muted">
+    Made for Íshokkísamband Íslands (ÍHÍ). Not an IIHF product; Hydra belongs to the IIHF. Flags: Circle Flags (MIT). Icons: Material Design Icons (Apache 2.0).
+    National association logos © their associations.
+  </footer>
+</main>
+<script>
+  const BASE = new URL('.', location.href).href;
+  const code = (mode) =>
+    "javascript:(()=>{if(!/\\.hydra\\.iihf\\.com$/.test(location.hostname)){alert('Log in to Hydra first, then tap this bookmark on a Hydra page.');return}" +
+    "if(window.__hydraUi)return;history.replaceState(null,'','/IIHF_Core/hydra-ui" + (mode ? '?mode=' + mode : '') + "');" +
+    "var s=document.createElement('script');s.src='" + BASE + "hydra-ui.js?v='+Date.now();" +
+    "s.onerror=function(){alert('Could not load the game entry app. Check the internet connection.')};" +
+    "(document.head||document.documentElement).appendChild(s)})()";
+  const items = [
+    ['Hydra game entry', code('')],
+    ['Hydra shots bench', code('bench')],
+  ];
+  for (const box of document.querySelectorAll('[data-bookmarklets]')) {
+    for (const [name, js] of items) {
+      const wrap = document.createElement('div');
+      wrap.style.margin = '12px 0';
+      wrap.innerHTML = '<b></b><textarea readonly></textarea><div class="row"><button class="btn primary" type="button">Copy</button><span class="ok" hidden>Copied</span></div>';
+      wrap.querySelector('b').textContent = name;
+      const ta = wrap.querySelector('textarea');
+      ta.value = js;
+      const done = wrap.querySelector('.ok');
+      wrap.querySelector('button').onclick = async () => {
+        try { await navigator.clipboard.writeText(js); } catch { ta.select(); document.execCommand('copy'); }
+        done.hidden = false; setTimeout(() => (done.hidden = true), 2000);
+      };
+      if (box.hasAttribute('data-drag')) {
+        const a = document.createElement('a');
+        a.className = 'btn drag'; a.href = js; a.textContent = '⇱ ' + name; a.title = 'Drag me to the bookmarks bar';
+        a.onclick = (e) => { e.preventDefault(); alert('Drag this button to your bookmarks bar, then use it on a Hydra page.'); };
+        wrap.querySelector('.row').prepend(a);
+      }
+      box.appendChild(wrap);
+    }
+  }
+  const pick = (t) => {
+    for (const b of document.querySelectorAll('[role=tab]')) b.setAttribute('aria-selected', String(b.dataset.tab === t));
+    for (const p of document.querySelectorAll('[data-panel]')) p.hidden = p.dataset.panel !== t;
+  };
+  for (const b of document.querySelectorAll('[role=tab]')) b.onclick = () => pick(b.dataset.tab);
+  const ua = navigator.userAgent;
+  pick(/Android/i.test(ua) ? 'android' : /iPad|iPhone|Macintosh/.test(ua) && 'ontouchend' in document ? 'ipad' : 'laptop');
+</script>
+</body>
+</html>

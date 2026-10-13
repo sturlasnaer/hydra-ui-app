@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Operator Guide</title>
+<meta name="description" content="How to enter a game in Hydra with ÍHÍ's game entry screen: main operator and shots bench.">
+<link rel="icon" href="ihi.png">
+<style>
+  :root {
+    --bg: #eef2f6; --surface: #fff; --surface-2: #f6f8fb; --border: #d5dde7; --text: #0f1b2d; --muted: #5b6b80;
+    --accent: #0b4ea2; --goal: #138a47; --penalty: #d42a2a; --warn: #b45309; --kbd: #e6ebf2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0b111a; --surface: #131c28; --surface-2: #1a2533; --border: #2a3748; --text: #e8eef6; --muted: #94a3b8;
+      --accent: #4c8dff; --goal: #39c477; --penalty: #ff5a5a; --warn: #f5a524; --kbd: #243246;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 15px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 900px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; gap: 14px; align-items: center; }
+  header img { width: 48px; height: 48px; object-fit: contain; }
+  h1 { font-size: 1.5em; margin: 0; }
+  h2 { font-size: 1.25em; margin: 0 0 4px; }
+  h3 { font-size: 1em; margin: 16px 0 6px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+  .muted { color: var(--muted); }
+  nav { display: flex; gap: 8px; flex-wrap: wrap; margin: 16px 0; }
+  nav a, .btn { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); color: var(--text); text-decoration: none; font-weight: 600; cursor: pointer; font: inherit; }
+  .role { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; margin: 16px 0; }
+  .role > p:first-of-type { margin-top: 2px; }
+  table { width: 100%; border-collapse: collapse; }
+  td { padding: 5px 8px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  td:first-child { width: 34%; font-weight: 600; }
+  kbd { display: inline-block; min-width: 1.6em; padding: 0 5px; border-radius: 5px; background: var(--kbd); border: 1px solid var(--border); font: 600 .85em/1.6 ui-monospace, Menlo, monospace; text-align: center; }
+  ol, ul { padding-left: 20px; margin: 6px 0; }
+  li { margin: 3px 0; }
+  .tip { border-left: 4px solid var(--accent); background: var(--surface-2); padding: 8px 12px; border-radius: 8px; margin: 10px 0; }
+  .warn { border-left-color: var(--warn); }
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 22px; }
+  @media (max-width: 720px) { .cols { grid-template-columns: 1fr; } td:first-child { width: 40%; } }
+  @media print {
+    :root { --bg: #fff; --surface: #fff; }
+    body { font-size: 11px; }
+    main { padding: 0; max-width: none; }
+    nav, .noprint { display: none; }
+    .role { border: 0; padding: 0; margin: 0; break-after: page; }
+    .role:last-of-type { break-after: auto; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="ihi.png" alt="ÍHÍ">
+    <div>
+      <h1>Operator guide — ÍHÍ Game Entry for Hydra</h1>
+      <div class="muted">Version 1.0.2. Everything you enter is saved straight into Hydra (Orion and Gemini Light).</div>
+    </div>
+  </header>
+  <nav class="noprint">
+    <a href="#main">Main operator</a>
+    <a href="#bench">Shots bench</a>
+    <a href="#trouble">When something goes wrong</a>
+    <a href="./">Install</a>
+    <button class="btn" onclick="print()">Print</button>
+  </nav>
+
+  <section class="role" id="main">
+    <h2>Main operator</h2>
+    <p class="muted">Goals, penalties, goalies, timeouts, game status, shootout, best players. Keyboard or touch – both work; switch at the top (Touch / Keyboard).</p>
+    <div class="cols">
+      <div>
+        <h3>Before the game</h3>
+        <ol>
+          <li>Log in to Hydra. Laptop: click <b>Open game entry ↗</b> in Hydra's menu. iPad / Android: your <b>Hydra game entry</b> bookmark or home-screen icon.</li>
+          <li>Pick the game: season → competition → game. If it says there is no line-up, enter it in Aquila first.</li>
+          <li>Is someone counting shots on a second device? Then tick <b>More (M) → Settings → Shots are counted on the shots bench</b>.</li>
+          <li>Set the clock to the scoreboard: click it (or <kbd>C</kbd>), type <code>2000</code>, <kbd>Enter</kbd>. Start / stop it with <kbd>Space</kbd>. Every entry takes its time from this clock; you can change the time in each form.</li>
+          <li><kbd>N</kbd> → <b>Start pre-game</b> at warm-up, <b>End pre-game</b>, then <b>Start period 1</b> at the face-off.</li>
+        </ol>
+        <h3>End of a period</h3>
+        <p><kbd>N</kbd> → End period. It warns if a team has more goals than shots. <kbd>N</kbd> again to start the next period: the clock is set and started.</p>
+        <h3>End of the game</h3>
+        <ul>
+          <li>Tied: <kbd>N</kbd> offers overtime, then the shootout (U14: straight to the shootout).</li>
+          <li><b>Shootout</b> (<kbd>O</kbd>): who shoots first, the goalies, and up to 5 shooters per team in order → <b>Store and start</b>. Each attempt: <kbd>G</kbd> scored, <kbd>S</kbd> saved, <kbd>P</kbd>/<kbd>H</kbd>/<kbd>L</kbd>/<kbd>R</kbd> missed (post / high / left / right), <kbd>X</kbd> lost the puck. When it is decided: <b>Mark game-winning goal</b>. Level after every shooter: <b>Nominate next shooters</b>.</li>
+          <li><kbd>M</kbd> → attendance and best players.</li>
+          <li><kbd>N</kbd> → <b>Game complete</b>. Penalties still open in Hydra are listed: <b>End all</b> first.</li>
+        </ul>
+      </div>
+      <div>
+        <h3>During play</h3>
+        <table>
+          <tr><td><kbd>G</kbd> Goal</td><td>Team <kbd>H</kbd>/<kbd>A</kbd> · scorer's number · assist numbers (or <kbd>U</kbd> unassisted) · <kbd>Enter</kbd>. The situation (EQ / PP / SH) is suggested from the penalty box; change with <kbd>E</kbd>/<kbd>P</kbd>/<kbd>S</kbd>. A power-play goal ends the minor by itself.</td></tr>
+          <tr><td><kbd>P</kbd> Penalty</td><td>Team · player's number (bench penalty: <b>T</b>) · type the infraction (<i>trip</i>, <i>hook</i>, <i>HI-ST</i>…) · <kbd>Enter</kbd> · <kbd>Enter</kbd>. Coincidental and penalty shot are at the bottom.</td></tr>
+          <tr><td><kbd>←</kbd>/<kbd>→</kbd> Shot</td><td>One shot on goal for home / away. <kbd>S</kbd> or <b>Shot by…</b> to pick the shooter. Goals add a shot by themselves.</td></tr>
+          <tr><td><kbd>K</kbd> Goalie</td><td>Team · the new goalie's number, or <kbd>E</kbd> to pull the goalie (empty net).</td></tr>
+          <tr><td><kbd>T</kbd> Timeout</td><td>Team · <kbd>Enter</kbd>.</td></tr>
+          <tr><td>Penalty box</td><td>When a penalty's time is up it moves to <b>Time's up</b>: tap <b>End at …</b> (or <b>End all</b>). Hydra keeps penalties open until they are ended.</td></tr>
+          <tr><td><kbd>M</kbd> More</td><td>Video review / coach's challenge, attendance, best players, Hydra chat, settings.</td></tr>
+          <tr><td>Mistakes</td><td>Right after saving: <b>Undo</b> in the message at the bottom (3 seconds). Later: tap the entry in <b>Game actions</b> to edit or delete it (delete = tap twice).</td></tr>
+        </table>
+        <div class="tip">Numbers: just type them – <kbd>8</kbd><kbd>1</kbd> picks #81. <kbd>Esc</kbd> closes a form without saving. <kbd>?</kbd> shows every shortcut.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="role" id="bench">
+    <h2>Shots bench</h2>
+    <p class="muted">Shots on goal and face-offs, on your own device, next to the main operator. Open the <b>Hydra shots bench</b> bookmark (or <code>…/IIHF_Core/hydra-ui?mode=bench</code>, or <b>Shots bench</b> in the main screen's top bar) and pick the game.</p>
+    <div class="cols">
+      <div>
+        <h3>Shots</h3>
+        <ul>
+          <li>Tap the <b>shooter's number</b> for each shot on goal. <b>+1 shot</b> when you didn't see who shot (only if the line-up has the #115 "unknown shooter" player). Keyboard: <kbd>←</kbd> / <kbd>→</kbd>.</li>
+          <li>A <b>goal counts as a shot</b> – tap the scorer too, if the main operator has <i>Shots are counted on the shots bench</i> switched on (otherwise the main screen adds it; agree on this before the game).</li>
+          <li>Wrong tap: <b>Undo last shot</b> (<kbd>Z</kbd>), or <b>Correct counts (−1)</b> and tap the player.</li>
+          <li>The period follows the game in Hydra. To fix an earlier period, pick it at the top (a yellow note shows), then go back.</li>
+        </ul>
+        <div class="tip">A shot on goal is one that would have gone in if the goalie hadn't stopped it – and every goal. Not: wide or over, the post or crossbar, shots blocked by a skater.</div>
+      </div>
+      <div>
+        <h3>Face-offs</h3>
+        <ol>
+          <li>Tap each team's centre once (<b>Centre</b> shows on the number). They stay picked until you change them.</li>
+          <li>After each face-off tap <b>ESP won</b> / <b>GBR won</b> (keyboard <kbd>←</kbd> / <kbd>→</kbd>).</li>
+          <li>New line on the ice: tap the new centre first.</li>
+          <li>Wrong tap: <b>Undo last face-off</b> (<kbd>Z</kbd>).</li>
+        </ol>
+        <p class="muted">Won–lost shows on each player's number. Everything is saved to Gemini Light a moment after each tap.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="role" id="trouble">
+    <h2>When something goes wrong</h2>
+    <p class="muted">The badge at the top right tells you how things stand: <b>Saved</b> · <b>Saving…</b> · <b>Offline</b> · <b>Log in to Hydra</b> · <b>N not saved</b>.</p>
+    <table>
+      <tr><td>No internet</td><td>Keep entering as normal. Entries are kept on the device and sent by themselves, in order, when the connection is back. Don't clear the browser's data while it says <i>waiting</i>.</td></tr>
+      <tr><td>"Your Hydra login has expired"</td><td>Open Hydra in another tab (link in the message), log in, come back. Waiting entries are sent by themselves.</td></tr>
+      <tr><td>Page reloaded / tab closed</td><td>Open the game entry again: it goes straight back to the game. Entries that were waiting are checked against Hydra and sent once – never twice.</td></tr>
+      <tr><td>"Hydra refused it"</td><td>Click the badge: the entry and Hydra's reason are listed. Fix it and <b>Retry</b>, or <b>Discard</b>. Entries after it wait until then.</td></tr>
+      <tr><td>Clock out of step</td><td>Click it (<kbd>C</kbd>) and type the scoreboard time. Times already saved can be fixed by editing the entry.</td></tr>
+      <tr><td>Wrong game status</td><td>Status steps go to Hydra straight away; ask the Hydra administrator to correct one.</td></tr>
+    </table>
+    <div class="tip warn">Two people must not enter the same thing: one main operator per game. The shots bench only does shots and face-offs.</div>
+  </section>
+</main>
+</body>
+</html>

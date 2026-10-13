@@ -49,7 +49,7 @@
     <img src="ihi.png" alt="ÍHÍ">
     <div>
       <h1>ÍHÍ Game Entry for Hydra</h1>
-      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.3.0 · built 2026-10-13 13:33 UTC</div>
+      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.4.0 · built 2026-10-13 19:54 UTC</div>
     </div>
   </header>
 
@@ -60,6 +60,11 @@
   <div class="card">
     <b>Practise first:</b> the <a href="training/"><b>training site</b></a> (æfingasvæði) has the same screens with sample games and a
     teacher that walks you through each task, in Icelandic or English. Nothing there goes to Hydra.
+  </div>
+
+  <div class="card">
+    <b>Just following a game?</b> The <b>Hydra watch only</b> bookmark opens the same screen read-only: it shows what is
+    entered in Hydra and refreshes every 20 seconds, but has no buttons that save anything.
   </div>
 
   <div class="card">
@@ -156,6 +161,7 @@
   const items = [
     ['Hydra game entry', code('main')],
     ['Hydra shots bench', code('bench')],
+    ['Hydra watch only', code('watch')],
   ];
   for (const box of document.querySelectorAll('[data-bookmarklets]')) {
     for (const [name, js] of items) {

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Leiðbeiningar ritara</title>
+<title>Leiðbeiningar um skráningu</title>
 <meta name="description" content="Leiðbeiningar fyrir skráningu leikja í Hydra með skráningarskjá ÍHÍ: ritari, skotatalning og ef eitthvað fer úrskeiðis. Operator guide in Icelandic and English.">
 <link rel="icon" href="ihi.png">
 <style>
@@ -115,6 +115,12 @@
   .callout p { margin: 0; }
   .callout p + p { margin-top: 6px; }
   ul.plain { margin: 0; padding-left: 20px; display: grid; gap: 8px; }
+  .act ul.plain { margin-top: 8px; gap: 4px; font-size: .95em; color: var(--muted); }
+  .act ul.plain b { color: var(--text); }
+  table.keys { border-collapse: collapse; margin: 8px 0 2px; font-size: .95em; }
+  table.keys td { padding: 3px 10px 3px 0; vertical-align: middle; }
+  table.keys td:nth-child(3) { padding-left: 18px; }
+  @media (max-width: 520px) { table.keys, table.keys tbody, table.keys tr { display: grid; grid-template-columns: auto 1fr; } table.keys td:nth-child(3) { padding-left: 0; } }
 
   /* Phone mock-up for the shots bench */
   .phonewrap { display: grid; grid-template-columns: 230px minmax(0, 1fr); gap: 24px; align-items: center; }
@@ -128,8 +134,8 @@
   .ph-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; padding: 0 8px 8px; }
   .ph-grid span { position: relative; background: #fff; border: 1px solid #d5dde7; border-bottom: 2px solid #0b63c4; border-radius: 7px; text-align: center; padding: 7px 0; font: 800 14px/1 system-ui, sans-serif; }
   .ph-grid i { position: absolute; top: 2px; right: 3px; font: 800 8px/1 system-ui; font-style: normal; background: #0b63c4; color: #fff; border-radius: 9px; padding: 1px 4px; }
-  .ph-foot { display: grid; grid-template-columns: 1.4fr 1fr .5fr; gap: 5px; padding: 8px; background: #fff; border-top: 1px solid #d5dde7; }
-  .ph-foot span { border: 1px solid #d5dde7; border-radius: 7px; padding: 7px 0; text-align: center; font-weight: 700; background: #f6f8fb; }
+  .ph-foot { display: grid; grid-template-columns: 1.5fr 1.2fr .45fr; gap: 4px; padding: 8px 6px; background: #fff; border-top: 1px solid #d5dde7; }
+  .ph-foot span { border: 1px solid #d5dde7; border-radius: 7px; padding: 7px 0; text-align: center; font-weight: 700; font-size: 9.5px; white-space: nowrap; background: #f6f8fb; }
   .pin { position: absolute; width: 22px; height: 22px; border-radius: 50%; background: #d42a2a; color: #fff; font: 800 12px/22px system-ui; text-align: center; box-shadow: 0 0 0 3px #fff; }
   ol.legend { list-style: none; margin: 0; padding: 0; counter-reset: l; display: grid; gap: 12px; }
   ol.legend li { counter-increment: l; position: relative; padding-left: 36px; }
@@ -137,7 +143,7 @@
 
   /* Status badge legend (as in the app's top bar) */
   .badges { display: grid; gap: 10px; }
-  .badge-row { display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 14px; align-items: center; }
+  .badge-row { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 14px; align-items: center; }
   .pill { display: inline-flex; align-items: center; gap: 8px; justify-self: start; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); background: var(--surface); font-weight: 700; font-size: .9em; white-space: nowrap; }
   .pill i { width: 10px; height: 10px; border-radius: 50%; background: var(--goal); }
   .pill.busy i { background: var(--shot); }
@@ -194,7 +200,7 @@
     <img src="ihi.png" alt="ÍHÍ">
     <div class="name">
       <span class="lang-is">Leiðbeiningar</span><span class="lang-en">Operator guide</span>
-      <small>ÍHÍ Game Entry for Hydra · 1.1.0</small>
+      <small>ÍHÍ Game Entry for Hydra · 1.2.0</small>
     </div>
     <span class="sp"></span>
     <span class="seg" role="group" aria-label="Tungumál / Language">
@@ -209,28 +215,28 @@
 <main class="lang-is" lang="is">
   <section class="hero">
     <h1>Skráning leikja í Hydra</h1>
-    <p class="lead">Allt sem þú skráir fer beint í Hydra (Orion og Gemini Light) – og þaðan á vefinn og í útsendingar. Veldu hlutverkið þitt:</p>
+    <p class="lead">Allt sem þú skráir er sent beint í Hydra (Orion og Gemini Light) og þaðan á vefinn og í útsendingar. Veldu það sem á við um þitt hlutverk:</p>
     <nav class="roles">
       <a class="rolecard c-accent" href="#is-ritari">
         <span class="ic"><svg class="i"><use href="#i-laptop"/></svg></span>
         <b>Ritari</b>
-        <span>Mörk, brottvísanir, markmenn, leikhlé, staða leiksins og vítakeppni.</span>
+        <span>Skráir mörk, brottvísanir, markverði, leikhlé, stöðu leiks og vítakeppni.</span>
         <em>Fartölva eða spjaldtölva →</em>
       </a>
       <a class="rolecard c-shot" href="#is-skot">
         <span class="ic"><svg class="i"><use href="#i-cellphone"/></svg></span>
         <b>Skotatalning</b>
-        <span>Skot á mark – einn á hvort lið, hvor með sinn síma. Uppköst á spjaldtölvu.</span>
-        <em>Sími →</em>
+        <span>Telur skot á mark. Tveir sjá um talninguna, einn fyrir hvort lið, hvor í sínum síma. Einnig má skrá uppköst á spjaldtölvu.</span>
+        <em>Sími eða spjaldtölva →</em>
       </a>
       <a class="rolecard c-warn" href="#is-vandi">
         <span class="ic"><svg class="i"><use href="#i-alert"/></svg></span>
-        <b>Ef eitthvað klikkar</b>
-        <span>Netið dettur út, innskráning rennur út, síðan endurhleðst.</span>
-        <em>Lausnir →</em>
+        <b>Ef eitthvað fer úrskeiðis</b>
+        <span>Leiðbeiningar ef nettenging rofnar, innskráning rennur út eða síðan endurhleðst.</span>
+        <em>Öll tæki →</em>
       </a>
     </nav>
-    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div>Hnappar á skjánum eru á ensku. Hér eru þeir sýndir eins og á skjánum, t.d. <span class="ui">Undo</span>, og flýtilyklar svona: <kbd>G</kbd>.</div></div>
+    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div><b>Hnappar og flýtilyklar:</b> Hnappar eru nefndir eins og þeir birtast á skjánum, til dæmis <span class="ui">Afturkalla</span>. Flýtilyklar eru sýndir svona: <kbd>G</kbd>. Örin <span class="then">›</span> sýnir í hvaða röð á að framkvæma aðgerðir; skástrik / merkir að velja eigi annan kostinn. Skjárinn er á íslensku; <span class="ui">EN</span> efst skiptir yfir í ensku.</div></div>
   </section>
 
   <!-- Ritari -->
@@ -239,83 +245,104 @@
       <span class="ic"><svg class="i"><use href="#i-laptop"/></svg></span>
       <div>
         <h2>Ritari</h2>
-        <p>Skráir allt sem gerist í leiknum. Lyklaborð eða snertiskjár – veldu <span class="ui">Touch</span> eða <span class="ui">Keyboard</span> efst á skjánum.</p>
+        <p>Ritarinn sér um aðalskráningu leiksins. Þú getur notað lyklaborð eða snertiskjá. Veldu <span class="ui">Snerting</span> fyrir snertiskjá eða <span class="ui">Lyklaborð</span> fyrir lyklaborð efst á skjánum.</p>
       </div>
     </div>
     <div class="role-body">
       <h3>Fyrir leik</h3>
       <ol class="steps">
-        <li><b>Opnaðu skráninguna.</b> Skráðu þig inn í Hydra. Fartölva: smelltu á <span class="ui">Open game entry ↗</span> í valmynd Hydra. iPad: bókamerkið <span class="ui">Hydra game entry</span> eða táknið á heimaskjánum.</li>
-        <li><b>Veldu leikinn:</b> tímabil → mót → leikur. Ef enginn leikmannalisti er kominn þarf fyrst að skrá hann í Aquila.</li>
-        <li><b>Eru skotin talin í símum?</b> Smelltu þá á <span class="ui">More</span> (<kbd>M</kbd>) → <span class="ui">Settings</span> og hakaðu við <span class="ui">Shots are counted on the shots bench</span>. Þá bætir skjárinn þinn ekki við skoti fyrir hvert mark – skotatalningin sér um öll skot.</li>
-        <li><b>Stilltu klukkuna eftir vallarklukkunni.</b> Smelltu á hana (eða <kbd>C</kbd>), sláðu inn <kbd>2000</kbd> og <kbd>Enter</kbd>. <kbd>Space</kbd> setur hana af stað og stöðvar. Hver skráning fær tímann af klukkunni og honum má breyta í forminu.</li>
-        <li><b>Staða leiksins:</b> <kbd>N</kbd> → <span class="ui">Start pre-game</span> þegar upphitun hefst, <span class="ui">End pre-game</span> þegar henni lýkur og <span class="ui">Start period 1</span> við fyrsta uppkast.</li>
+        <li><b>Opnaðu skráningarskjáinn.</b> Skráðu þig inn í Hydra. Á fartölvu smellirðu á <span class="ui">Opna leikskráningu ↗</span> í valmynd Hydra. Á iPad opnarðu bókamerkið <span class="ui">Hydra game entry</span> eða ýtir á táknið á heimaskjánum.</li>
+        <li><b>Veldu leikinn:</b> tímabil → mót → leikur. Ef leikmannalisti hefur ekki verið skráður þarf fyrst að skrá hann í Aquila.</li>
+        <li><b>Verða skotin talin í símum?</b> Opnaðu þá <span class="ui">Meira</span> (<kbd>M</kbd>) → <span class="ui">Stillingar</span> og hakaðu við <span class="ui">Skot eru talin í skotatalningu</span>. Þá bætir kerfið ekki sjálfkrafa við skoti þegar þú skráir mark. Þau sem sjá um skotatalninguna skrá öll skot á mark.</li>
+        <li><b>Samstilltu klukkuna við leikklukkuna í höllinni.</b> Smelltu á klukkuna eða ýttu á <kbd>C</kbd>. Sláðu inn <kbd>2000</kbd> og ýttu á <kbd>Enter</kbd> til að stilla hana á 20:00. Bilsláin (<kbd>Space</kbd>) ræsir og stöðvar klukkuna. Hver færsla fær sjálfkrafa tímann sem klukkan sýnir, en þú getur breytt honum í skráningarforminu.</li>
+        <li><b>Uppfærðu stöðu leiksins.</b> Ýttu á <kbd>N</kbd> og veldu <span class="ui">Hefja upphitun</span> þegar upphitun hefst, <span class="ui">Ljúka upphitun</span> þegar henni lýkur og <span class="ui">Hefja 1. lotu</span> við fyrsta uppkast.</li>
       </ol>
 
-      <h3>Í leiknum</h3>
+      <h3>Meðan á leik stendur</h3>
       <div class="cards">
         <div class="act c-goal">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-puck"/></svg></span><div><b>Mark</b><small>Goal</small></div></div>
-          <div class="recipe"><kbd>G</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">nr. skorara</span><span class="then">›</span><span class="slot">nr. stoðsendinga</span><span class="or">eða</span><kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
-          <p><kbd>H</kbd> = heimalið, <kbd>A</kbd> = útilið. Staðan (<b>EQ</b> jafnt, <b>PP</b> manni fleiri, <b>SH</b> manni færri) er fyllt út eftir refsibekknum – breyttu með <kbd>E</kbd> / <kbd>P</kbd> / <kbd>S</kbd>. Mark manni fleiri lýkur minni brottvísun sjálfkrafa.</p>
+          <div class="recipe"><kbd>G</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer markaskorara</span><span class="then">›</span><span class="slot">númer þeirra sem áttu stoðsendingar</span><span class="or">eða</span><kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
+          <p><kbd>H</kbd> merkir heimalið og <kbd>A</kbd> útilið. Kerfið velur sjálfkrafa <b>EQ</b>, <b>PP</b> eða <b>SH</b> út frá skráðum brottvísunum:</p>
+          <ul class="plain small">
+            <li><b>EQ:</b> jafnmargir útileikmenn hjá báðum liðum.</li>
+            <li><b>PP:</b> liðið sem skorar er í yfirtölu, þ.e. með fleiri útileikmenn.</li>
+            <li><b>SH:</b> liðið sem skorar er í undirtölu, þ.e. með færri útileikmenn.</li>
+          </ul>
+          <p>Þú getur breytt valinu með <kbd>E</kbd>, <kbd>P</kbd> eða <kbd>S</kbd>. Við mark í yfirtölu lýkur kerfið viðeigandi tveggja mínútna brottvísun (<i>minor</i>) sjálfkrafa.</p>
         </div>
         <div class="act c-pen">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-whistle"/></svg></span><div><b>Brottvísun</b><small>Penalty</small></div></div>
-          <div class="recipe"><kbd>P</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">nr. leikmanns</span><span class="then">›</span><span class="slot">brot, t.d. trip</span><span class="then">›</span><kbd>Enter</kbd><kbd>Enter</kbd></div>
-          <p>Bekkjarrefsing: veldu <span class="ui">T Bench</span> í stað leikmanns. Samtímis brottvísanir (<span class="ui">Coincidental</span>) og vítaskot (<span class="ui">Penalty shot</span>) eru neðst í forminu.</p>
+          <div class="recipe"><kbd>P</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer leikmanns</span><span class="then">›</span><span class="slot">brot, t.d. trip</span><span class="then">›</span><kbd>Enter</kbd><span class="then">›</span><kbd>Enter</kbd></div>
+          <p><b>Bekkjarrefsing:</b> Veldu <span class="ui">T Bekkur</span> í stað leikmanns.</p>
+          <p>Valkostirnir <span class="ui">Samtímis</span> fyrir samtímis brottvísanir og <span class="ui">Vítaskot</span> eru neðst í skráningarforminu. Heiti brota og brottvísana eru á ensku, eins og í Hydra og á leikskýrslunni.</p>
         </div>
         <div class="act c-shot">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-sticks"/></svg></span><div><b>Skot á mark</b><small>Shot</small></div></div>
-          <div class="recipe"><kbd>←</kbd><span class="or">heimalið</span><kbd>→</kbd><span class="or">útilið</span><span class="or">·</span><kbd>S</kbd><span class="or">velja skyttu</span></div>
-          <p>Mark telst sjálfkrafa sem skot. <b>Ef skotin eru talin í símum</b> eru skotahnapparnir faldir hjá þér og þú skráir engin skot.</p>
+          <ul class="plain small">
+            <li><kbd>←</kbd> skráir skot á mark hjá heimaliði.</li>
+            <li><kbd>→</kbd> skráir skot á mark hjá útiliði.</li>
+            <li><kbd>S</kbd> velur leikmanninn sem skaut.</li>
+          </ul>
+          <p>Þegar þú skráir mark bætir kerfið sjálfkrafa við skoti á mark, nema sérstök skotatalning sé virk.</p>
+          <p><b>Ef skotin eru talin í símum</b> eru skotahnapparnir faldir á skráningarskjá ritarans. Þú skráir þá engin skot; þau sem sjá um skotatalninguna skrá þau öll.</p>
         </div>
         <div class="act c-goalie">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-mask"/></svg></span><div><b>Markmaður</b><small>Goalie</small></div></div>
-          <div class="recipe"><kbd>K</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">nr. nýja markmannsins</span><span class="or">eða</span><kbd>E</kbd><span class="or">autt mark</span></div>
-          <p>Vistast um leið og númerið er valið. Þegar markmaðurinn kemur aftur inn: <kbd>K</kbd> og númerið hans.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-mask"/></svg></span><div><b>Markvörður</b><small>Goalie</small></div></div>
+          <div class="recipe"><kbd>K</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer nýja markvarðarins</span><span class="or">eða</span><kbd>E</kbd><span class="or">fyrir autt mark</span></div>
+          <p>Færslan vistast um leið og þú velur númerið. Þegar markvörðurinn kemur aftur inn á ísinn ýtirðu á <kbd>K</kbd> og velur númerið hans.</p>
         </div>
         <div class="act c-to">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-timer"/></svg></span><div><b>Leikhlé</b><small>Timeout</small></div></div>
           <div class="recipe"><kbd>T</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-pen">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Refsibekkurinn</b><small>Penalty box</small></div></div>
-          <p style="margin-top:0">Þegar tími brottvísunar er liðinn færist hún undir <span class="ui">Time's up</span>: ýttu á <span class="ui">End at …</span> eða <span class="ui">End all</span>. Hydra heldur brottvísun opinni þar til henni er lokið.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Refsibekkur</b><small>Penalty box</small></div></div>
+          <p style="margin-top:0">Þegar refsitíminn er liðinn færist brottvísunin undir <span class="ui">Refsitími liðinn</span>. Ýttu á <span class="ui">Ljúka á …</span> til að ljúka henni eða <span class="ui">Ljúka öllum</span> til að ljúka öllum brottvísunum sem þar eru.</p>
+          <p>Brottvísun telst enn ólokin í Hydra þar til þú lýkur skráningu hennar.</p>
         </div>
         <div class="act c-neutral">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>Meira</b><small>More · <kbd>M</kbd></small></div></div>
-          <p style="margin-top:0">Myndbandsskoðun og áskorun þjálfara, áhorfendafjöldi, bestu leikmenn, spjall í Hydra og stillingar.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>Fleiri aðgerðir</b><small>Meira · <kbd>M</kbd></small></div></div>
+          <p style="margin-top:0">Opnaðu <span class="ui">Meira</span> eða ýttu á <kbd>M</kbd> til að skrá myndbandsyfirferð, beiðni þjálfara um endurskoðun dóms, áhorfendafjölda og bestu leikmenn. Þar finnurðu einnig spjallið í Hydra og stillingar.</p>
         </div>
         <div class="act c-warn">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><div><b>Mistök</b><small>Undo · edit · delete</small></div></div>
-          <p style="margin-top:0"><b>Strax:</b> <span class="ui">Undo</span> í skilaboðunum neðst (3 sekúndur). <b>Seinna:</b> smelltu á færsluna í <span class="ui">Game actions</span> til að breyta eða eyða (eyða = ýta tvisvar).</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><div><b>Leiðrétting mistaka</b><small>Afturkalla · breyta · eyða</small></div></div>
+          <p style="margin-top:0"><b>Strax eftir skráningu:</b> Ýttu á <span class="ui">Afturkalla</span> í tilkynningunni neðst á skjánum innan þriggja sekúndna.</p>
+          <p><b>Síðar:</b> Veldu færsluna í <span class="ui">Atvik leiksins</span> til að breyta henni eða eyða. Til að eyða færslu þarf að ýta tvisvar á eyðingarhnappinn.</p>
         </div>
       </div>
-      <div class="callout"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Númer: sláðu þau bara inn</b> – <kbd>8</kbd><kbd>1</kbd> velur #81.  <kbd>Esc</kbd> lokar formi án þess að vista.  <kbd>?</kbd> sýnir alla flýtilykla.</p></div></div>
+      <div class="callout"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Númer og flýtilyklar:</b> Sláðu leikmannanúmer beint inn. Til dæmis velur <kbd>8</kbd> og síðan <kbd>1</kbd> leikmann númer 81. <kbd>Esc</kbd> lokar skráningarforminu án þess að vista. <kbd>?</kbd> sýnir alla flýtilykla.</p></div></div>
 
       <div class="two">
         <div>
           <h3>Í lok lotu</h3>
           <ol class="steps">
-            <li><kbd>N</kbd> → <span class="ui">End period</span>. Þú færð viðvörun ef lið er með fleiri mörk en skot.</li>
-            <li><kbd>N</kbd> aftur til að hefja næstu lotu – klukkan stillist og fer af stað.</li>
+            <li>Ýttu á <kbd>N</kbd> og veldu <span class="ui">Ljúka 1. lotu</span> (2. lotu, 3. lotu). Viðvörun birtist ef fleiri mörk en skot á mark hafa verið skráð hjá öðru liðinu.</li>
+            <li>Ýttu aftur á <kbd>N</kbd> til að hefja næstu lotu. Klukkan stillist og fer af stað sjálfkrafa.</li>
           </ol>
         </div>
         <div>
           <h3>Í lok leiks</h3>
           <ol class="steps">
-            <li><b>Jafnt?</b> <kbd>N</kbd> býður framlengingu og síðan vítakeppni (U14: beint í vítakeppni).</li>
-            <li><kbd>M</kbd> → áhorfendafjöldi og bestu leikmenn.</li>
-            <li><kbd>N</kbd> → <span class="ui">Game complete</span>. Ef brottvísanir eru enn opnar birtast þær: ýttu fyrst á <span class="ui">End all</span>.</li>
+            <li><b>Er staðan jöfn?</b> Ýttu á <kbd>N</kbd>. Kerfið býður fyrst upp á framlengingu og síðan vítakeppni. Í U14 er farið beint í vítakeppni.</li>
+            <li>Ýttu á <kbd>M</kbd> og skráðu áhorfendafjölda og bestu leikmenn.</li>
+            <li>Ýttu á <kbd>N</kbd> og veldu <span class="ui">Leik lokið</span>. Ef einhverjum brottvísunum hefur ekki verið lokið birtist listi yfir þær. Ýttu fyrst á <span class="ui">Ljúka öllum</span>.</li>
           </ol>
         </div>
       </div>
 
       <h3>Vítakeppni</h3>
       <ol class="steps">
-        <li><kbd>O</kbd> (eða <span class="ui">Start shootout</span>): veldu liðið sem byrjar, markmennina og allt að 5 skyttur á lið í réttri röð → <span class="ui">Store and start</span>.</li>
-        <li>Hvert skot: <kbd>G</kbd> mark · <kbd>S</kbd> varið · <kbd>P</kbd> stöng · <kbd>H</kbd> yfir · <kbd>L</kbd> framhjá vinstra · <kbd>R</kbd> framhjá hægra · <kbd>X</kbd> missti pökkinn.</li>
-        <li>Þegar úrslit liggja fyrir: <span class="ui">Mark game-winning goal</span> (rétt mark er valið fyrir þig). Enn jafnt eftir allar skyttur: <span class="ui">Nominate next shooters</span>.</li>
+        <li>Ýttu á <kbd>O</kbd> eða veldu <span class="ui">Hefja vítakeppni</span>. Veldu liðið sem tekur fyrsta vítaskotið, markverði beggja liða og allt að fimm skyttur úr hvoru liði í þeirri röð sem þær eiga að skjóta. Veldu síðan <span class="ui">Vista og hefja</span>.</li>
+        <li>Skráðu niðurstöðu hvers vítaskots með viðeigandi lykli:
+          <table class="keys">
+            <tr><td><kbd>G</kbd></td><td>Mark</td><td><kbd>S</kbd></td><td>Varið</td></tr>
+            <tr><td><kbd>P</kbd></td><td>Í stöng</td><td><kbd>H</kbd></td><td>Yfir markið</td></tr>
+            <tr><td><kbd>L</kbd></td><td>Framhjá vinstra megin</td><td><kbd>R</kbd></td><td>Framhjá hægra megin</td></tr>
+            <tr><td><kbd>X</kbd></td><td>Skyttan missti pökkinn</td><td></td><td></td></tr>
+          </table>
+        </li>
+        <li>Þegar úrslit liggja fyrir velurðu <span class="ui">Merkja sigurmark</span>. Kerfið leggur til hvaða mark eigi að merkja sem sigurmark. Ef staðan er enn jöfn eftir að allar valdar skyttur hafa skotið velurðu <span class="ui">Velja næstu skyttur</span>.</li>
       </ol>
     </div>
   </section>
@@ -326,26 +353,26 @@
       <span class="ic"><svg class="i"><use href="#i-cellphone"/></svg></span>
       <div>
         <h2>Skotatalning</h2>
-        <p>Tveir á hvern leik: hvor telur skot á mark hjá sínu liði, í sínum síma. Á spjaldtölvu má telja bæði liðin og uppköst.</p>
+        <p>Tveir sjá um skotatalningu í hverjum leik, einn fyrir hvort lið. Hvor skráir skot síns liðs á mark í sínum síma. Á spjaldtölvu má skrá skot beggja liða og úrslit uppkasta.</p>
       </div>
     </div>
     <div class="role-body">
       <h3>Fyrir leik</h3>
       <ol class="steps">
         <li><b>Skráðu þig inn í Hydra í símanum</b> og opnaðu bókamerkið <span class="ui">Hydra shots bench</span>.</li>
-        <li><b>Veldu leikinn</b> og svo <b>liðið sem þú telur</b> (<span class="ui">Which team are you counting?</span>). Síminn man valið ef síðan endurhleðst.</li>
-        <li><b>Láttu ritarann vita</b> að skotin séu talin í símum. Ritarinn hakar þá við <span class="ui">Shots are counted on the shots bench</span>.</li>
-        <li><b>Hafðu símann hlaðinn.</b> Skjárinn helst kveiktur á meðan talið er.</li>
+        <li><b>Veldu leikinn og liðið sem þú telur skot fyrir</b> undir <span class="ui">Fyrir hvaða lið telur þú skot?</span> Valið helst ef síðan endurhleðst.</li>
+        <li><b>Láttu ritarann vita</b> að skotin verði talin í símum. Ritarinn hakar þá við <span class="ui">Skot eru talin í skotatalningu</span>.</li>
+        <li><b>Gættu þess að síminn sé hlaðinn.</b> Skjárinn helst á meðan þú telur skotin.</li>
       </ol>
 
-      <h3>Í leiknum</h3>
+      <h3>Meðan á leik stendur</h3>
       <div class="phonewrap">
         <div class="phone" aria-hidden="true">
           <div class="screen">
             <div class="ph-head"><span class="ph-logo"></span><b>SR</b><span class="ph-count">7</span></div>
-            <div class="ph-plus">+1 SHOT</div>
+            <div class="ph-plus">+1 SKOT</div>
             <div class="ph-grid"><span>4</span><span>5<i>2</i></span><span>6</span><span>7</span><span>9<i>3</i></span><span>10</span><span>11<i>1</i></span><span>12</span><span>14</span><span>16</span><span>17<i>1</i></span><span>19</span></div>
-            <div class="ph-foot"><span>↶ Undo #9</span><span>Correct −1</span><span>⋯</span></div>
+            <div class="ph-foot"><span>↶ Afturkalla #9</span><span>Leiðrétta −1</span><span>⋯</span></div>
             <span class="pin" style="top:6px;right:44px">1</span>
             <span class="pin" style="top:92px;left:4px">2</span>
             <span class="pin" style="top:46px;right:4px">3</span>
@@ -353,58 +380,61 @@
           </div>
         </div>
         <ol class="legend">
-          <li><b>Liðið þitt og skotin þess í lotunni</b> (og allur leikurinn fyrir neðan). Lotan fylgir leiknum í Hydra sjálfkrafa.</li>
-          <li><b>Ýttu á númer skyttunnar við hvert skot á mark.</b> Litla talan á númerinu eru skot leikmannsins í lotunni.</li>
-          <li><span class="ui">+1 shot</span> – þegar þú sást ekki hver skaut.</li>
-          <li><span class="ui">Undo</span> tekur síðasta skot til baka. Eldri villa: <span class="ui">Correct −1</span>, ýttu á leikmanninn og svo <span class="ui">Done</span>.</li>
+          <li><b>Efst sérðu liðið þitt og fjölda skota þess á mark í yfirstandandi lotu.</b> Þar fyrir neðan sérðu heildarfjölda skota í leiknum. Kerfið skiptir sjálfkrafa um lotu í samræmi við stöðu leiksins í Hydra.</li>
+          <li><b>Ýttu á númer leikmannsins sem skaut við hvert skot á mark.</b> Litla talan á hnappnum sýnir fjölda skota leikmannsins á mark í lotunni.</li>
+          <li><b>Ýttu á <span class="ui">+1 skot</span> ef þú sást ekki hver skaut.</b></li>
+          <li><b>Leiðréttu mistök.</b> <span class="ui">Afturkalla</span> afturkallar síðasta skotið. Til að leiðrétta eldri skráningu velurðu <span class="ui">Leiðrétta −1</span>, ýtir á leikmanninn sem skotið var skráð á og velur síðan <span class="ui">Búið</span>.</li>
         </ol>
       </div>
-      <div class="callout c-goal"><svg class="i"><use href="#i-puck"/></svg><div><p><b>Mark er líka skot á mark</b> – ýttu á númer markaskorarans.</p></div></div>
+      <div class="callout c-goal"><svg class="i"><use href="#i-puck"/></svg><div><p><b>Mark telst líka skot á mark.</b> Ýttu því á númer markaskorarans þegar lið þitt skorar.</p></div></div>
       <div class="callout c-shot"><svg class="i"><use href="#i-check"/></svg><div>
-        <p><b>Skot á mark</b> er skot sem hefði farið inn ef markmaðurinn hefði ekki varið – og öll mörk.</p>
-        <p><b>Ekki skot á mark:</b> framhjá eða yfir, í stöng eða slá, skot sem útileikmaður stöðvar.</p>
+        <p><b>Hvað telst skot á mark?</b> Skot sem hefði farið í markið ef markvörðurinn hefði ekki varið það, auk allra skota sem enda í marki.</p>
+        <p><b>Hvað telst ekki skot á mark?</b> Skot sem fer framhjá eða yfir markið, skot í stöng eða slá sem fer ekki inn og skot sem útileikmaður stöðvar.</p>
       </div></div>
-      <div class="callout c-neutral"><svg class="i"><use href="#i-info"/></svg><div><p><span class="ui">⋯</span> neðst til hægri: skipta um lið, bæði lið á einum skjá, annar leikur, dökkur skjár. Til að laga fyrri lotu skaltu velja hana efst (gul lína birtist) og fara svo aftur í núverandi lotu.</p></div></div>
+      <div class="callout c-neutral"><svg class="i"><use href="#i-info"/></svg><div>
+        <p><b>Fleiri valkostir:</b> Ýttu á <span class="ui">⋯</span> neðst til hægri til að skipta um lið, sýna bæði lið á einum skjá, velja annan leik, skipta yfir í dökkt útlit eða yfir í ensku.</p>
+        <p><b>Leiðrétting í fyrri lotu:</b> Veldu lotuna efst á skjánum. Gul tilkynning birtist til að minna þig á að þú ert að skrá í fyrri lotu. Að leiðréttingu lokinni skaltu velja aftur yfirstandandi lotu.</p>
+      </div></div>
 
-      <h3>Uppköst – spjaldtölva, bæði lið</h3>
+      <h3>Skráning uppkasta – spjaldtölva, bæði lið</h3>
       <ol class="steps">
-        <li>Veldu <span class="ui">Both teams on one screen</span> og flipann <span class="ui">Face-offs</span>.</li>
-        <li>Ýttu einu sinni á miðjumann hvors liðs. Þeir haldast valdir þar til þú breytir.</li>
-        <li>Eftir hvert uppkast: <span class="ui">[lið] won</span> – eða <kbd>←</kbd> / <kbd>→</kbd>. Ný lína: ýttu fyrst á nýja miðjumanninn.</li>
-        <li>Rangt skráð: <span class="ui">Undo last face-off</span> (<kbd>Z</kbd>).</li>
+        <li>Veldu <span class="ui">Bæði lið á einum skjá</span> og opnaðu flipann <span class="ui">Uppköst</span>.</li>
+        <li>Ýttu einu sinni á miðjumann hvors liðs. Valið helst þar til þú velur aðra leikmenn.</li>
+        <li>Eftir hvert uppkast ýtirðu á <span class="ui">[lið] vann</span> fyrir liðið sem vann uppkastið eða notar <kbd>←</kbd> / <kbd>→</kbd>. Þegar ný lína kemur inn á ísinn skaltu fyrst velja nýja miðjumanninn.</li>
+        <li>Ef uppkast var ranglega skráð velurðu <span class="ui">Afturkalla síðasta uppkast</span> eða ýtir á <kbd>Z</kbd>.</li>
       </ol>
     </div>
   </section>
 
-  <!-- Ef eitthvað klikkar -->
+  <!-- Ef eitthvað fer úrskeiðis -->
   <section class="role c-warn" id="is-vandi">
     <div class="role-head">
       <span class="ic"><svg class="i"><use href="#i-alert"/></svg></span>
       <div>
-        <h2>Ef eitthvað klikkar</h2>
-        <p>Merkið efst til hægri segir þér alltaf hvernig staðan er.</p>
+        <h2>Ef eitthvað fer úrskeiðis</h2>
+        <p>Stöðuvísirinn efst til hægri sýnir hvort færslur hafi verið vistaðar í Hydra eða bíði sendingar.</p>
       </div>
     </div>
     <div class="role-body">
-      <h3>Merkið efst</h3>
+      <h3>Stöðuvísirinn</h3>
       <div class="badges">
-        <div class="badge-row"><span class="pill"><i></i>Saved · 5s ago</span><span>Allt er komið í Hydra.</span></div>
-        <div class="badge-row"><span class="pill busy"><i></i>Saving 2…</span><span>Er að senda. Ekkert að gera.</span></div>
-        <div class="badge-row"><span class="pill bad"><i></i>Offline · 2 waiting</span><span>Netlaust. Skráningarnar bíða í tækinu og fara sjálfar.</span></div>
-        <div class="badge-row"><span class="pill bad"><i></i>Log in to Hydra · 1 waiting</span><span>Innskráningin rann út – sjá hér fyrir neðan.</span></div>
-        <div class="badge-row"><span class="pill bad"><i></i>1 not saved</span><span>Hydra hafnaði færslu. Smelltu á merkið.</span></div>
+        <div class="badge-row"><span class="pill"><i></i>Vistað · fyrir 5 s</span><span>Allar færslur hafa verið vistaðar í Hydra. Síðast var vistað fyrir fimm sekúndum.</span></div>
+        <div class="badge-row"><span class="pill busy"><i></i>Vista 2…</span><span>Verið er að senda tvær færslur. Þú þarft ekkert að gera.</span></div>
+        <div class="badge-row"><span class="pill bad"><i></i>Netlaust · 2 bíða</span><span>Engin nettenging er til staðar. Tvær færslur bíða í tækinu og verða sendar sjálfkrafa þegar tenging kemst á aftur.</span></div>
+        <div class="badge-row"><span class="pill bad"><i></i>Skráðu þig inn í Hydra · 1 bíður</span><span>Innskráningin er útrunnin og ein færsla bíður. Sjá leiðbeiningar hér fyrir neðan.</span></div>
+        <div class="badge-row"><span class="pill bad"><i></i>1 óvistuð</span><span>Hydra hafnaði einni færslu. Veldu stöðuvísinn til að sjá nánari upplýsingar.</span></div>
       </div>
 
       <h3>Hvað á að gera</h3>
       <div class="fixes">
-        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-wifi-off"/></svg></span>Netið dettur út</h4><p><b>Haltu áfram að skrá eins og venjulega.</b> Skráningarnar geymast í tækinu og fara sjálfar, í réttri röð, þegar netið kemur aftur – aldrei tvisvar. Ekki hreinsa gögn vafrans á meðan eitthvað bíður.</p></div>
-        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-login"/></svg></span>„Your Hydra login has expired“</h4><p>Opnaðu Hydra í öðrum flipa (hlekkur í skilaboðunum), <b>skráðu þig inn</b> og komdu til baka. Það sem beið fer sjálft.</p></div>
-        <div class="fix c-accent"><h4><span class="ic"><svg class="i"><use href="#i-refresh"/></svg></span>Síðan endurhlóðst eða lokaðist</h4><p>Opnaðu skráninguna aftur: hún fer beint í leikinn. Það sem beið er borið saman við Hydra og sent <b>einu sinni</b>.</p></div>
-        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-cancel"/></svg></span>„Hydra refused it“</h4><p>Smelltu á merkið: færslan og ástæðan birtast. Lagaðu og ýttu á <span class="ui">Retry</span>, eða <span class="ui">Discard</span>. Næstu færslur bíða á meðan.</p></div>
-        <div class="fix c-to"><h4><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span>Klukkan er ekki í takt</h4><p>Smelltu á hana (<kbd>C</kbd>) og sláðu inn tímann á vallarklukkunni. Tíma sem búið er að vista má laga með því að breyta færslunni.</p></div>
-        <div class="fix c-neutral"><h4><span class="ic"><svg class="i"><use href="#i-flag"/></svg></span>Röng staða leiks</h4><p>Stöðubreytingar fara strax í Hydra. Biddu umsjónarmann Hydra að leiðrétta.</p></div>
+        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-wifi-off"/></svg></span>Nettengingin rofnar</h4><p><b>Haltu áfram að skrá eins og venjulega.</b> Færslurnar geymast í tækinu og eru sendar sjálfkrafa í réttri röð þegar nettenging kemst á aftur. Hver færsla er aðeins send einu sinni.</p><p>Ekki hreinsa gögn vafrans meðan færslur bíða sendingar.</p></div>
+        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-login"/></svg></span>„Innskráningin í Hydra er útrunnin“</h4><p>Opnaðu Hydra í öðrum vafraflipa með hlekknum í tilkynningunni. <b>Skráðu þig inn</b> og farðu síðan aftur á skráningarskjáinn. Færslur sem biðu sendingar verða sendar sjálfkrafa.</p></div>
+        <div class="fix c-accent"><h4><span class="ic"><svg class="i"><use href="#i-refresh"/></svg></span>Síðan endurhlóðst eða lokaðist</h4><p>Opnaðu skráningarskjáinn aftur. Hann opnast beint í sama leik. Færslur sem biðu sendingar eru bornar saman við skráningar í Hydra svo þær séu aðeins sendar <b>einu sinni</b>.</p></div>
+        <div class="fix c-pen"><h4><span class="ic"><svg class="i"><use href="#i-cancel"/></svg></span>„Hydra hafnaði færslunni“</h4><p>Veldu stöðuvísinn til að sjá færsluna og ástæðuna fyrir því að Hydra hafnaði henni. Leiðréttu færsluna og veldu <span class="ui">Reyna aftur</span>, eða <span class="ui">Fella niður</span> til að fella hana niður.</p><p>Færslur sem voru skráðar á eftir henni bíða þar til þú hefur afgreitt hana.</p></div>
+        <div class="fix c-to"><h4><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span>Klukkan sýnir ekki réttan tíma</h4><p>Smelltu á klukkuna eða ýttu á <kbd>C</kbd> og sláðu inn tímann sem leikklukkan í höllinni sýnir. Til að leiðrétta tíma í færslu sem hefur þegar verið vistuð þarftu að opna færsluna og breyta henni.</p></div>
+        <div class="fix c-neutral"><h4><span class="ic"><svg class="i"><use href="#i-flag"/></svg></span>Staða leiksins er röng</h4><p>Breytingar á stöðu leiksins eru sendar strax í Hydra. Biddu umsjónarmann Hydra að leiðrétta ranga stöðu.</p></div>
       </div>
-      <div class="callout c-warn"><svg class="i"><use href="#i-group"/></svg><div><p><b>Einn ritari á hvern leik.</b> Skotatalningin skráir aðeins skot og uppköst – tveir mega aldrei skrá það sama.</p></div></div>
+      <div class="callout c-warn"><svg class="i"><use href="#i-group"/></svg><div><p><b>Einn ritari sér um hvern leik.</b> Þau sem sjá um skotatalningu skrá aðeins skot á mark og úrslit uppkasta. Gætið þess að tveir aðilar skrái ekki sömu atvik.</p></div></div>
     </div>
   </section>
 </main>
@@ -434,7 +464,7 @@
         <em>Fixes →</em>
       </a>
     </nav>
-    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div>Buttons are shown as they appear on screen, e.g. <span class="ui">Undo</span>, and keyboard shortcuts like this: <kbd>G</kbd>.</div></div>
+    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div>The screen opens in Icelandic: press <span class="ui">EN</span> at the top (or <span class="ui">⋯</span> on the phone screen) to switch to English. Buttons are named below as they appear in English, e.g. <span class="ui">Undo</span>; keyboard shortcuts look like this: <kbd>G</kbd>. Penalty codes and infractions are always in English, as in Hydra.</div></div>
   </section>
 
   <section class="role c-accent" id="en-main">
@@ -566,7 +596,7 @@
         <p><b>A shot on goal</b> is one that would have gone in if the goalie hadn't stopped it – and every goal.</p>
         <p><b>Not a shot on goal:</b> wide or over, the post or crossbar, a shot blocked by a skater.</p>
       </div></div>
-      <div class="callout c-neutral"><svg class="i"><use href="#i-info"/></svg><div><p><span class="ui">⋯</span> at the bottom right: switch team, both teams on one screen, another game, dark screen. To fix an earlier period, pick it at the top (a yellow note shows), then go back to the current one.</p></div></div>
+      <div class="callout c-neutral"><svg class="i"><use href="#i-info"/></svg><div><p><span class="ui">⋯</span> at the bottom right: switch team, both teams on one screen, another game, dark screen, Icelandic. To fix an earlier period, pick it at the top (a yellow note shows), then go back to the current one.</p></div></div>
 
       <h3>Face-offs – tablet, both teams</h3>
       <ol class="steps">
@@ -611,14 +641,14 @@
 </main>
 
 <footer>
-  <span>ÍHÍ Game Entry for Hydra · 1.1.0</span>
+  <span>ÍHÍ Game Entry for Hydra · 1.2.0</span>
   <a href="./"><span class="lang-is">Uppsetning</span><span class="lang-en">Install</span></a>
 </footer>
 
 <script>
   (function () {
     var root = document.documentElement;
-    var titles = { is: 'Leiðbeiningar ritara', en: 'Operator guide' };
+    var titles = { is: 'Leiðbeiningar um skráningu', en: 'Operator guide' };
     function set(lang, remember) {
       root.dataset.lang = lang;
       root.lang = lang;

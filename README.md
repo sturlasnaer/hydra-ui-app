@@ -2,4 +2,4 @@
 
 Install page: https://sturlasnaer.github.io/hydra-ui-app/
 
-Built files only (version 1.2.1, 2026-10-13 12:29 UTC). The app runs inside a logged-in IIHF Hydra page and saves straight into Hydra.
+Built files only (version 1.2.2, 2026-10-13 12:54 UTC). The app runs inside a logged-in IIHF Hydra page and saves straight into Hydra.

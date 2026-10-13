@@ -141,6 +141,68 @@
   ol.legend li { counter-increment: l; position: relative; padding-left: 36px; }
   ol.legend li::before { content: counter(l); position: absolute; left: 0; top: 1px; width: 24px; height: 24px; border-radius: 50%; background: #d42a2a; color: #fff; font: 800 13px/24px system-ui; text-align: center; }
 
+  /* Click recipes: what to press, in order */
+  .how { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin: 2px 0 4px; }
+  .how > svg.i { color: var(--c, var(--accent)); font-size: 1.25em; margin-right: 2px; }
+  .how .or, .keysline .or { color: var(--muted); font-size: .9em; }
+  .bl { display: inline-flex; align-items: center; min-height: 1.9em; padding: 0 .6em; border-radius: 8px; border: 1px solid var(--kbd-edge); border-bottom-width: 2px; background: var(--surface); color: var(--text); font-weight: 700; font-size: .88em; white-space: nowrap; }
+  .bl.goal { background: #138a47; border-color: #0e6b37; color: #fff; }
+  .bl.pen { background: #d42a2a; border-color: #a51f1f; color: #fff; }
+  .bl.shot { background: #4b5ccc; border-color: #3846a6; color: #fff; }
+  .bl.pri { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .keysline { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin-top: 12px; padding-top: 8px; border-top: 1px dashed var(--border); font-size: .85em; color: var(--muted); }
+  .keysline > svg.i { font-size: 1.2em; }
+  .keysline .lab { font-weight: 700; }
+  .keysline kbd { font-size: .78em; }
+  ol.legend.cols2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 26px; margin-top: 14px; }
+  table.keys td:nth-child(2), table.keys td:nth-child(4) { padding-right: 18px; }
+
+  /* Map of the main screen (light, like the app); text scales with the width */
+  .map { container-type: inline-size; }
+  .map-in { font-size: 1.32cqw; line-height: 1.25; background: #eef2f6; color: #0f1b2d; border-radius: 1.2em; border: 1px solid #d5dde7; overflow: hidden; box-shadow: 0 6px 24px rgba(15, 27, 45, .12); }
+  .map-in b { font-weight: 800; }
+  .map-in em { font-style: normal; font-weight: 800; }
+  .m-top, .m-bar { display: flex; align-items: center; gap: .8em; padding: .7em 1em; background: #fff; }
+  .m-top { border-bottom: 1px solid #d5dde7; }
+  .m-bar { border-top: 1px solid #d5dde7; }
+  .m-logo { width: 2.2em; height: 2.2em; border-radius: .5em; background: linear-gradient(#0b4ea2, #d42a2a); }
+  .m-sp { flex: 1; }
+  .m-badge, .m-chip, .m-pill { padding: .3em .8em; border: 1px solid #d5dde7; border-radius: 99em; white-space: nowrap; }
+  .m-badge { font-weight: 700; }
+  .m-badge .dot { display: inline-block; width: .7em; height: .7em; border-radius: 50%; background: #138a47; margin-right: .4em; }
+  .m-chip { color: #5b6b80; }
+  .m-score { display: grid; grid-template-columns: 1fr auto 1fr; gap: .8em; padding: .8em 1em; }
+  .m-team { display: flex; align-items: center; gap: .8em; background: #fff; border-radius: .7em; border-top: .35em solid var(--c); padding: .6em 1em; }
+  .m-team b { font-size: 1.6em; }
+  .m-big { margin-left: auto; font: 800 2.8em/1 system-ui, sans-serif; }
+  .m-team .m-big:first-child { margin: 0 auto 0 0; }
+  .m-clock { display: flex; flex-direction: column; align-items: center; gap: .2em; background: #0f1b2d; border-radius: .7em; padding: .5em 2em; }
+  .m-period { color: #9aaabd; font-size: .8em; letter-spacing: .1em; }
+  .m-time { color: #ffd23f; font: 800 2.8em/1 system-ui, sans-serif; }
+  .m-start { background: #ffd23f; color: #0f1b2d; border-radius: .4em; padding: .15em .7em; font-weight: 800; }
+  .m-main { display: grid; grid-template-columns: 1fr 1.7fr 1fr; gap: .8em; padding: 0 1em .9em; }
+  .m-roster { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; align-content: start; background: #fff; border-radius: .7em; padding: .7em; }
+  .m-roster b { grid-column: 1 / -1; font-size: .85em; color: #5b6b80; letter-spacing: .05em; }
+  .m-roster span { border: 1px solid #d5dde7; border-radius: .45em; padding: .4em .5em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .m-roster em { color: #0b4ea2; margin-right: .3em; }
+  .m-center { display: grid; gap: .7em; align-content: start; }
+  .m-pads { display: grid; grid-template-columns: 1fr 1fr; gap: .7em; }
+  .m-pad { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; background: #fff; border-radius: .7em; border-left: .35em solid var(--c); padding: .6em; }
+  .m-btn { border-radius: .45em; color: #fff; font-weight: 800; text-align: center; padding: .6em .2em; font-size: .9em; white-space: nowrap; }
+  .m-btn.goal { background: #138a47; }
+  .m-btn.pen { background: #d42a2a; }
+  .m-btn.shot { background: #4b5ccc; grid-column: 1 / -1; }
+  .m-smalls { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: .35em; }
+  .m-sm { border: 1px solid #d5dde7; border-radius: .45em; padding: .2em .5em; font-size: .9em; white-space: nowrap; background: #fff; }
+  .m-panel { display: grid; gap: .35em; background: #fff; border-radius: .7em; padding: .6em .8em; }
+  .m-panel b { font-size: .8em; color: #5b6b80; letter-spacing: .06em; }
+  .m-ev { display: flex; align-items: center; gap: .7em; border-left: .3em solid var(--c); background: #f6f8fb; border-radius: .35em; padding: .35em .6em; white-space: nowrap; overflow: hidden; }
+  .m-stage { background: #0f1b2d; color: #fff; border-radius: .45em; padding: .3em .7em; font-weight: 800; }
+  .m-next { background: #0b4ea2; color: #fff; border-radius: .55em; padding: .5em 1em; font-weight: 800; }
+  .m-more { border: 1px solid #d5dde7; border-radius: .55em; padding: .5em 1em; font-weight: 700; white-space: nowrap; }
+  .m-rel { position: relative; }
+  .mpin { position: absolute; top: -1.3em; left: -1.1em; z-index: 2; width: 2.1em; height: 2.1em; border-radius: 50%; background: #d42a2a; color: #fff; font: 800 max(1em, 11px)/2.1em system-ui, sans-serif; font-size: max(1em, 11px); text-align: center; font-style: normal; box-shadow: 0 0 0 .22em #fff; }
+
   /* Status badge legend (as in the app's top bar) */
   .badges { display: grid; gap: 10px; }
   .badge-row { display: grid; grid-template-columns: 290px minmax(0, 1fr); gap: 14px; align-items: center; }
@@ -161,7 +223,7 @@
   footer { max-width: 1040px; margin: 0 auto; padding: 0 16px 40px; color: var(--muted); font-size: .9em; display: flex; flex-wrap: wrap; gap: 8px 18px; }
 
   @media (max-width: 820px) {
-    .roles, .cards, .fixes, .two { grid-template-columns: minmax(0, 1fr); }
+    .roles, .cards, .fixes, .two, ol.legend.cols2 { grid-template-columns: minmax(0, 1fr); }
     .phonewrap { grid-template-columns: minmax(0, 1fr); justify-items: center; }
     .badge-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
   }
@@ -184,7 +246,7 @@
     .hero .lead { margin-bottom: 8px; }
     .role { margin-top: 0; break-before: page; }
     .role-body { box-shadow: none; }
-    .act, .fix, .callout, ol.steps > li { break-inside: avoid; }
+    .act, .fix, .callout, ol.steps > li, .map { break-inside: avoid; }
     .cards, .fixes { gap: 8px; }
     h3 { margin: 14px 0 8px; }
     footer { display: none; }
@@ -193,14 +255,14 @@
 </head>
 <body>
 <!-- Icons: Material Design Icons (Apache 2.0); goalie helmet: ÍHÍ. -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-printer" viewBox="0 0 24 24"><path fill="currentColor" d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1a1 1 0 0 1 1-1a1 1 0 0 1 1 1a1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></symbol><symbol id="i-laptop" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2z"/></symbol><symbol id="i-cellphone" viewBox="0 0 24 24"><path fill="currentColor" d="M17 19H7V5h10m0-4H7c-1.11 0-2 .89-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path fill="currentColor" d="M11 15h2v2h-2zm0-8h2v6h-2zm1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"/></symbol><symbol id="i-puck" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5C6.5 5 2 6.57 2 8.5S6.5 12 12 12s10-1.57 10-3.5S17.5 5 12 5M2 11.76v4.74C2 18.43 6.5 20 12 20s10-1.57 10-3.5v-4.74c-.67.46-1.42.81-2.27 1.1C17.62 13.6 14.95 14 12 14s-5.62-.4-7.73-1.14c-.85-.29-1.6-.64-2.27-1.1"/></symbol><symbol id="i-whistle" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 9A6.5 6.5 0 0 0 2 15.5A6.5 6.5 0 0 0 8.5 22a6.5 6.5 0 0 0 6.5-6.5v-1.59L22 12V9H11v2H9V9zM11 2v5H9V2zM6.35 7.28q-1.005.24-1.92.72L2.14 4.88L3.76 3.7zm11.51-2.4L16.32 7h-2.47l2.39-3.3z"/></symbol><symbol id="i-sticks" viewBox="0 0 24 24"><path fill="currentColor" d="M17.68 4H14.3l-1.74 4c-.03.04-.11.22-.25.5s-.25.54-.31.69L9.7 4H6.32l4.09 8.84c.09.22.32.75.7 1.59c.39.85.67 1.48.89 1.92l1.41 3.09c.19.34.48.51.89.51L19 20v-4h-4l-1.4-3.16zm2.35 12v4H22v-3c0-.27-.09-.5-.28-.72c-.19-.2-.42-.28-.72-.28zM5 16v4l4.7-.05c.41 0 .7-.17.89-.51l.85-1.94l-1.6-3.44L9 16zm-3 4h1.97v-4H3c-.3 0-.53.08-.72.28c-.19.22-.28.45-.28.72z"/></symbol><symbol id="i-timer" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20a7 7 0 0 1-7-7a7 7 0 0 1 7-7a7 7 0 0 1 7 7a7 7 0 0 1-7 7m7.03-12.61l1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0-9 9a9 9 0 0 0 9 9c5 0 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61M11 14h2V8h-2m4-7H9v2h6z"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20a8 8 0 0 0 8-8a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10a10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67l-.75 1.23L11 13V7z"/></symbol><symbol id="i-dots" viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></symbol><symbol id="i-undo" viewBox="0 0 24 24"><path fill="currentColor" d="M12.5 8c-2.65 0-5.05 1-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88c3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8"/></symbol><symbol id="i-keyboard" viewBox="0 0 24 24"><path fill="currentColor" d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 2h16v10H4zm1 1v2h2V8zm3 0v2h2V8zm3 0v2h2V8zm3 0v2h2V8zm3 0v2h2V8zM5 11v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm-9 3v2h8v-2z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"/></symbol><symbol id="i-wifi-off" viewBox="0 0 24 24"><path fill="currentColor" d="M2.28 3L1 4.27l1.47 1.47c-.43.26-.86.55-1.27.86L3 9c.53-.4 1.08-.75 1.66-1.07l2.23 2.23c-.74.34-1.45.75-2.09 1.24l1.8 2.4c.78-.58 1.66-1.03 2.6-1.33L11.75 15c-1.25.07-2.41.5-3.35 1.2L12 21l2.46-3.27L17.74 21L19 19.72M12 3c-2.15 0-4.2.38-6.1 1.07l2.39 2.4C9.5 6.16 10.72 6 12 6c3.38 0 6.5 1.11 9 3l1.8-2.4C19.79 4.34 16.06 3 12 3m0 6c-.38 0-.75 0-1.12.05l3.19 3.2c1.22.28 2.36.82 3.33 1.55l1.8-2.4C17.2 9.89 14.7 9 12 9"/></symbol><symbol id="i-login" viewBox="0 0 24 24"><path fill="currentColor" d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path fill="currentColor" d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8a8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6a6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></symbol><symbol id="i-cancel" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12S6.5 2 12 2m0 2c-1.9 0-3.6.6-4.9 1.7l11.2 11.2c1-1.4 1.7-3.1 1.7-4.9c0-4.4-3.6-8-8-8m4.9 14.3L5.7 7.1C4.6 8.4 4 10.1 4 12c0 4.4 3.6 8 8 8c1.9 0 3.6-.6 4.9-1.7"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path fill="currentColor" d="M14.4 6H20v10h-7l-.4-2H7v7H5V4h9zm-.4 8h2v-2h2v-2h-2V8h-2v2l-1-2V6h-2v2H9V6H7v2h2v2H7v2h2v-2h2v2h2v-2l1 2zm-3-4V8h2v2zm3 0h2v2h-2z"/></symbol><symbol id="i-group" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z"/></symbol><symbol id="i-mask" viewBox="17 18 410 410"><defs><mask id="gm-knock"><rect x="0" y="0" width="450" height="460" fill="#fff"/><path d="M272 174 339 174 350 305 C319 297 277 280 251 266 Q238 244 241 209 Q244 182 272 174Z" fill="#000"/><path d="M198 156 343 129 C357 162 367 192 374 222 C383 256 375 289 359 314 C312 313 267 297 225 278 C214 264 207 225 198 156Z M201 170 352 171 M207 207 C256 210 311 212 368 218 M215 245 C261 251 320 261 373 269 M268 142 C270 177 275 211 274 242 C275 260 266 279 247 289 M313 134 C315 163 321 196 324 225 C330 255 317 279 297 299" fill="none" stroke="#000" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/></mask></defs><g fill="currentColor" mask="url(#gm-knock)"><path d="M146 43 151 29 Q165 22 177 27 L184 40"/><path d="M90 132 91 78 Q91 52 116 46 C174 28 227 32 269 52 C305 70 329 94 334 123 L318 146 108 154Z"/><path d="M91 135 Q68 142 67 158 L67 278 Q67 292 83 298 L146 323 182 346 219 345 238 331 258 343 C285 368 292 405 322 417 L346 422 Q355 420 356 405 L365 326 350 305 C323 304 278 286 251 266 Q238 246 241 209 Q244 182 273 174 L339 174 334 126 C266 119 172 119 91 135Z"/><path d="M238 308 C278 295 321 309 365 327 L356 405 Q354 424 343 422 L323 418 C290 408 280 367 249 344 L232 334Z"/></g><path d="M198 156 343 129 C357 162 367 192 374 222 C383 256 375 289 359 314 C312 313 267 297 225 278 C214 264 207 225 198 156Z M201 170 352 171 M207 207 C256 210 311 212 368 218 M215 245 C261 251 320 261 373 269 M268 142 C270 177 275 211 274 242 C275 260 266 279 247 289 M313 134 C315 163 321 196 324 225 C330 255 317 279 297 299" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="i-tap" viewBox="0 0 24 24"><path fill="currentColor" d="M10 9a1 1 0 0 1 1-1a1 1 0 0 1 1 1v4.47l1.21.13l4.94 2.19c.53.24.85.77.85 1.35v4.36c-.03.82-.68 1.47-1.5 1.5H11c-.38 0-.74-.15-1-.43l-4.9-4.2l.74-.77c.19-.21.46-.32.74-.32h.22L10 19zm1-4a4 4 0 0 1 4 4c0 1.5-.8 2.77-2 3.46v-1.22c.61-.55 1-1.35 1-2.24a3 3 0 0 0-3-3a3 3 0 0 0-3 3c0 .89.39 1.69 1 2.24v1.22C7.8 11.77 7 10.5 7 9a4 4 0 0 1 4-4"/></symbol><symbol id="i-printer" viewBox="0 0 24 24"><path fill="currentColor" d="M18 3H6v4h12m1 5a1 1 0 0 1-1-1a1 1 0 0 1 1-1a1 1 0 0 1 1 1a1 1 0 0 1-1 1m-3 7H8v-5h8m3-6H5a3 3 0 0 0-3 3v6h4v4h12v-4h4v-6a3 3 0 0 0-3-3"/></symbol><symbol id="i-laptop" viewBox="0 0 24 24"><path fill="currentColor" d="M4 6h16v10H4m16 2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2H4c-1.11 0-2 .89-2 2v10a2 2 0 0 0 2 2H0v2h24v-2z"/></symbol><symbol id="i-cellphone" viewBox="0 0 24 24"><path fill="currentColor" d="M17 19H7V5h10m0-4H7c-1.11 0-2 .89-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24"><path fill="currentColor" d="M11 15h2v2h-2zm0-8h2v6h-2zm1-5C6.47 2 2 6.5 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8a8 8 0 0 1 8-8a8 8 0 0 1 8 8a8 8 0 0 1-8 8"/></symbol><symbol id="i-info" viewBox="0 0 24 24"><path fill="currentColor" d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8s8 3.59 8 8s-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10a10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"/></symbol><symbol id="i-puck" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5C6.5 5 2 6.57 2 8.5S6.5 12 12 12s10-1.57 10-3.5S17.5 5 12 5M2 11.76v4.74C2 18.43 6.5 20 12 20s10-1.57 10-3.5v-4.74c-.67.46-1.42.81-2.27 1.1C17.62 13.6 14.95 14 12 14s-5.62-.4-7.73-1.14c-.85-.29-1.6-.64-2.27-1.1"/></symbol><symbol id="i-whistle" viewBox="0 0 24 24"><path fill="currentColor" d="M8.5 9A6.5 6.5 0 0 0 2 15.5A6.5 6.5 0 0 0 8.5 22a6.5 6.5 0 0 0 6.5-6.5v-1.59L22 12V9H11v2H9V9zM11 2v5H9V2zM6.35 7.28q-1.005.24-1.92.72L2.14 4.88L3.76 3.7zm11.51-2.4L16.32 7h-2.47l2.39-3.3z"/></symbol><symbol id="i-sticks" viewBox="0 0 24 24"><path fill="currentColor" d="M17.68 4H14.3l-1.74 4c-.03.04-.11.22-.25.5s-.25.54-.31.69L9.7 4H6.32l4.09 8.84c.09.22.32.75.7 1.59c.39.85.67 1.48.89 1.92l1.41 3.09c.19.34.48.51.89.51L19 20v-4h-4l-1.4-3.16zm2.35 12v4H22v-3c0-.27-.09-.5-.28-.72c-.19-.2-.42-.28-.72-.28zM5 16v4l4.7-.05c.41 0 .7-.17.89-.51l.85-1.94l-1.6-3.44L9 16zm-3 4h1.97v-4H3c-.3 0-.53.08-.72.28c-.19.22-.28.45-.28.72z"/></symbol><symbol id="i-timer" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20a7 7 0 0 1-7-7a7 7 0 0 1 7-7a7 7 0 0 1 7 7a7 7 0 0 1-7 7m7.03-12.61l1.42-1.42c-.45-.51-.9-.97-1.41-1.41L17.62 6c-1.55-1.26-3.5-2-5.62-2a9 9 0 0 0-9 9a9 9 0 0 0 9 9c5 0 9-4.03 9-9c0-2.12-.74-4.07-1.97-5.61M11 14h2V8h-2m4-7H9v2h6z"/></symbol><symbol id="i-clock" viewBox="0 0 24 24"><path fill="currentColor" d="M12 20a8 8 0 0 0 8-8a8 8 0 0 0-8-8a8 8 0 0 0-8 8a8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10a10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67l-.75 1.23L11 13V7z"/></symbol><symbol id="i-dots" viewBox="0 0 24 24"><path fill="currentColor" d="M16 12a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2m-6 0a2 2 0 0 1 2-2a2 2 0 0 1 2 2a2 2 0 0 1-2 2a2 2 0 0 1-2-2"/></symbol><symbol id="i-undo" viewBox="0 0 24 24"><path fill="currentColor" d="M12.5 8c-2.65 0-5.05 1-6.9 2.6L2 7v9h9l-3.62-3.62c1.39-1.16 3.16-1.88 5.12-1.88c3.54 0 6.55 2.31 7.6 5.5l2.37-.78C21.08 11.03 17.15 8 12.5 8"/></symbol><symbol id="i-keyboard" viewBox="0 0 24 24"><path fill="currentColor" d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 2h16v10H4zm1 1v2h2V8zm3 0v2h2V8zm3 0v2h2V8zm3 0v2h2V8zm3 0v2h2V8zM5 11v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm3 0v2h2v-2zm-9 3v2h8v-2z"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10s10-4.5 10-10S17.5 2 12 2m-2 15l-5-5l1.41-1.41L10 14.17l7.59-7.59L19 8z"/></symbol><symbol id="i-wifi-off" viewBox="0 0 24 24"><path fill="currentColor" d="M2.28 3L1 4.27l1.47 1.47c-.43.26-.86.55-1.27.86L3 9c.53-.4 1.08-.75 1.66-1.07l2.23 2.23c-.74.34-1.45.75-2.09 1.24l1.8 2.4c.78-.58 1.66-1.03 2.6-1.33L11.75 15c-1.25.07-2.41.5-3.35 1.2L12 21l2.46-3.27L17.74 21L19 19.72M12 3c-2.15 0-4.2.38-6.1 1.07l2.39 2.4C9.5 6.16 10.72 6 12 6c3.38 0 6.5 1.11 9 3l1.8-2.4C19.79 4.34 16.06 3 12 3m0 6c-.38 0-.75 0-1.12.05l3.19 3.2c1.22.28 2.36.82 3.33 1.55l1.8-2.4C17.2 9.89 14.7 9 12 9"/></symbol><symbol id="i-login" viewBox="0 0 24 24"><path fill="currentColor" d="M11 7L9.6 8.4l2.6 2.6H2v2h10.2l-2.6 2.6L11 17l5-5zm9 12h-8v2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-8v2h8z"/></symbol><symbol id="i-refresh" viewBox="0 0 24 24"><path fill="currentColor" d="M17.65 6.35A7.96 7.96 0 0 0 12 4a8 8 0 0 0-8 8a8 8 0 0 0 8 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0 1 12 18a6 6 0 0 1-6-6a6 6 0 0 1 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4z"/></symbol><symbol id="i-cancel" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2c5.5 0 10 4.5 10 10s-4.5 10-10 10S2 17.5 2 12S6.5 2 12 2m0 2c-1.9 0-3.6.6-4.9 1.7l11.2 11.2c1-1.4 1.7-3.1 1.7-4.9c0-4.4-3.6-8-8-8m4.9 14.3L5.7 7.1C4.6 8.4 4 10.1 4 12c0 4.4 3.6 8 8 8c1.9 0 3.6-.6 4.9-1.7"/></symbol><symbol id="i-flag" viewBox="0 0 24 24"><path fill="currentColor" d="M14.4 6H20v10h-7l-.4-2H7v7H5V4h9zm-.4 8h2v-2h2v-2h-2V8h-2v2l-1-2V6h-2v2H9V6H7v2h2v2H7v2h2v-2h2v2h2v-2l1 2zm-3-4V8h2v2zm3 0h2v2h-2z"/></symbol><symbol id="i-group" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5.5A3.5 3.5 0 0 1 15.5 9a3.5 3.5 0 0 1-3.5 3.5A3.5 3.5 0 0 1 8.5 9A3.5 3.5 0 0 1 12 5.5M5 8c.56 0 1.08.15 1.53.42c-.15 1.43.27 2.85 1.13 3.96C7.16 13.34 6.16 14 5 14a3 3 0 0 1-3-3a3 3 0 0 1 3-3m14 0a3 3 0 0 1 3 3a3 3 0 0 1-3 3c-1.16 0-2.16-.66-2.66-1.62a5.54 5.54 0 0 0 1.13-3.96c.45-.27.97-.42 1.53-.42M5.5 18.25c0-2.07 2.91-3.75 6.5-3.75s6.5 1.68 6.5 3.75V20h-13zM0 20v-1.5c0-1.39 1.89-2.56 4.45-2.9c-.59.68-.95 1.62-.95 2.65V20zm24 0h-3.5v-1.75c0-1.03-.36-1.97-.95-2.65c2.56.34 4.45 1.51 4.45 2.9z"/></symbol><symbol id="i-mask" viewBox="17 18 410 410"><defs><mask id="gm-knock"><rect x="0" y="0" width="450" height="460" fill="#fff"/><path d="M272 174 339 174 350 305 C319 297 277 280 251 266 Q238 244 241 209 Q244 182 272 174Z" fill="#000"/><path d="M198 156 343 129 C357 162 367 192 374 222 C383 256 375 289 359 314 C312 313 267 297 225 278 C214 264 207 225 198 156Z M201 170 352 171 M207 207 C256 210 311 212 368 218 M215 245 C261 251 320 261 373 269 M268 142 C270 177 275 211 274 242 C275 260 266 279 247 289 M313 134 C315 163 321 196 324 225 C330 255 317 279 297 299" fill="none" stroke="#000" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/></mask></defs><g fill="currentColor" mask="url(#gm-knock)"><path d="M146 43 151 29 Q165 22 177 27 L184 40"/><path d="M90 132 91 78 Q91 52 116 46 C174 28 227 32 269 52 C305 70 329 94 334 123 L318 146 108 154Z"/><path d="M91 135 Q68 142 67 158 L67 278 Q67 292 83 298 L146 323 182 346 219 345 238 331 258 343 C285 368 292 405 322 417 L346 422 Q355 420 356 405 L365 326 350 305 C323 304 278 286 251 266 Q238 246 241 209 Q244 182 273 174 L339 174 334 126 C266 119 172 119 91 135Z"/><path d="M238 308 C278 295 321 309 365 327 L356 405 Q354 424 343 422 L323 418 C290 408 280 367 249 344 L232 334Z"/></g><path d="M198 156 343 129 C357 162 367 192 374 222 C383 256 375 289 359 314 C312 313 267 297 225 278 C214 264 207 225 198 156Z M201 170 352 171 M207 207 C256 210 311 212 368 218 M215 245 C261 251 320 261 373 269 M268 142 C270 177 275 211 274 242 C275 260 266 279 247 289 M313 134 C315 163 321 196 324 225 C330 255 317 279 297 299" fill="none" stroke="currentColor" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
 
 <header class="top">
   <div class="top-in">
     <img src="ihi.png" alt="ÍHÍ">
     <div class="name">
       <span class="lang-is">Leiðbeiningar</span><span class="lang-en">Operator guide</span>
-      <small>ÍHÍ Game Entry for Hydra · 1.2.1</small>
+      <small>ÍHÍ Game Entry for Hydra · 1.2.2</small>
     </div>
     <span class="sp"></span>
     <span class="seg" role="group" aria-label="Tungumál / Language">
@@ -236,7 +298,7 @@
         <em>Öll tæki →</em>
       </a>
     </nav>
-    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div><b>Hnappar og flýtilyklar:</b> Hnappar eru nefndir eins og þeir birtast á skjánum, til dæmis <span class="ui">Afturkalla</span>. Flýtilyklar eru sýndir svona: <kbd>G</kbd>. Örin <span class="then">›</span> sýnir í hvaða röð á að framkvæma aðgerðir; skástrik / merkir að velja eigi annan kostinn. Skjárinn er á íslensku; <span class="ui">EN</span> efst skiptir yfir í ensku.</div></div>
+    <div class="uinote"><svg class="i"><use href="#i-tap"/></svg><div><b>Smelltu eða ýttu:</b> Allt er gert með því að smella með músinni eða ýta á skjáinn. Hnappar eru nefndir eins og þeir birtast á skjánum, til dæmis <span class="ui">Afturkalla</span>, og örin <span class="then">›</span> sýnir röðina. Flýtilyklar (<kbd>G</kbd>) eru valfrjálsir og sýndir í gráum línum. Skjárinn er á íslensku; <span class="ui">EN</span> efst skiptir yfir í ensku.</div></div>
   </section>
 
   <!-- Ritari -->
@@ -245,104 +307,146 @@
       <span class="ic"><svg class="i"><use href="#i-laptop"/></svg></span>
       <div>
         <h2>Ritari</h2>
-        <p>Ritarinn sér um aðalskráningu leiksins. Þú getur notað lyklaborð eða snertiskjá. Veldu <span class="ui">Snerting</span> fyrir snertiskjá eða <span class="ui">Lyklaborð</span> fyrir lyklaborð efst á skjánum.</p>
+        <p>Ritarinn sér um aðalskráningu leiksins. Allt er gert með því að smella með músinni eða ýta á skjáinn. Veldu <span class="ui">Snerting</span> efst fyrir stærri hnappa á snertiskjá eða <span class="ui">Lyklaborð</span> fyrir þéttara útlit.</p>
       </div>
     </div>
     <div class="role-body">
+      <h3>Skjárinn</h3>
+      <div class="map" aria-hidden="true">
+        <div class="map-in">
+          <div class="m-top"><span class="m-logo"></span><b>Leikskráning</b><span class="m-badge m-rel"><i class="dot"></i>Vistað · fyrir 5 s<i class="mpin">1</i></span><span class="m-sp"></span><span class="m-chip">Snerting · Lyklaborð</span><span class="m-chip">EN</span><span class="m-chip">Leikir</span><span class="m-chip">Skotatalning</span></div>
+          <div class="m-score">
+            <div class="m-team" style="--c:#0b63c4"><b>SR</b><span class="m-pill">Markvörður #30</span><span class="m-big">2</span></div>
+            <div class="m-clock m-rel"><span class="m-period">1. LOTA</span><span class="m-time">14:32</span><span class="m-start">▶ Ræsa</span><i class="mpin">2</i></div>
+            <div class="m-team" style="--c:#c4421a"><span class="m-big">1</span><b>SA</b><span class="m-pill">Markvörður #31</span></div>
+          </div>
+          <div class="m-main">
+            <div class="m-roster m-rel"><b>SR – LEIKMENN</b><span><em>4</em> Kárason</span><span><em>5</em> Viktorsson</span><span><em>7</em> Loftsson</span><span><em>9</em> Friðriksson</span><span><em>10</em> Magnússon</span><span><em>11</em> Jónsson</span><i class="mpin">3</i></div>
+            <div class="m-center">
+              <div class="m-pads m-rel">
+                <div class="m-pad" style="--c:#0b63c4"><span class="m-btn goal">MARK</span><span class="m-btn pen">BROTTVÍSUN</span><span class="m-btn shot">+ SKOT</span><span class="m-smalls"><span class="m-sm">Velja skyttu…</span><span class="m-sm">Markvörður</span><span class="m-sm">Leikhlé</span></span></div>
+                <div class="m-pad" style="--c:#c4421a"><span class="m-btn goal">MARK</span><span class="m-btn pen">BROTTVÍSUN</span><span class="m-btn shot">+ SKOT</span><span class="m-smalls"><span class="m-sm">Velja skyttu…</span><span class="m-sm">Markvörður</span><span class="m-sm">Leikhlé</span></span></div>
+                <i class="mpin">4</i>
+              </div>
+              <div class="m-panel m-rel"><b>REFSIBEKKUR</b><span class="m-ev" style="--c:#c4421a"><em>1:12</em> SA #4 TRIP<span class="m-sp"></span><span class="m-sm">Ljúka…</span></span><i class="mpin">5</i></div>
+              <div class="m-panel m-rel"><b>ATVIK LEIKSINS</b><span class="m-ev" style="--c:#0b63c4"><em>14:40</em> Mark · SR 2–1 · #9 Friðriksson</span><span class="m-ev" style="--c:#c4421a"><em>16:12</em> Brottvísun · SA #4 TRIP</span><i class="mpin">6</i></div>
+            </div>
+            <div class="m-roster"><b>SA – LEIKMENN</b><span><em>2</em> Jónsson</span><span><em>3</em> Guðmundsson</span><span><em>8</em> Tómasson</span><span><em>24</em> Ólafsson</span><span><em>55</em> Kárason</span><span><em>77</em> Birgisson</span></div>
+          </div>
+          <div class="m-bar"><span class="m-stage">1. lota</span><span>Áhorfendur 412</span><span class="m-sp"></span><span class="m-next m-rel">Ljúka 1. lotu<i class="mpin">7</i></span><span class="m-more m-rel">Áhorfendur · Bestu leikmenn · Myndband · Spjall<i class="mpin">8</i></span></div>
+        </div>
+      </div>
+      <ol class="legend cols2">
+        <li><b>Stöðuvísir.</b> Sýnir hvort allt sé komið í Hydra. Smelltu á hann til að sjá færslur sem bíða.</li>
+        <li><b>Klukkan.</b> Smelltu á tímann til að stilla hann. <span class="ui">▶ Ræsa</span> / <span class="ui">❚❚ Stöðva</span> undir henni.</li>
+        <li><b>Leikmannalistar.</b> Smelltu á leikmann til að fá hnappana <span class="ui">Mark</span>, <span class="ui">Brottvísun</span> og <span class="ui">+ Skot</span> fyrir hann.</li>
+        <li><b>Hnappar hvors liðs.</b> Vinstra megin heimalið, hægra megin gestir.</li>
+        <li><b>Refsibekkurinn.</b> Brottvísanir í gangi og þær sem þarf að ljúka.</li>
+        <li><b>Atvik leiksins.</b> Smelltu á færslu til að breyta henni eða eyða.</li>
+        <li><b>Næsta staða leiksins.</b> Til dæmis <span class="ui">Hefja upphitun</span>, <span class="ui">Ljúka 1. lotu</span> eða <span class="ui">Leik lokið</span>.</li>
+        <li><b>Meira.</b> Áhorfendur, bestu leikmenn, myndbandsyfirferð, spjall og stillingar.</li>
+      </ol>
+
       <h3>Fyrir leik</h3>
       <ol class="steps">
         <li><b>Opnaðu skráningarskjáinn.</b> Skráðu þig inn í Hydra. Á fartölvu smellirðu á <span class="ui">Opna leikskráningu ↗</span> í valmynd Hydra. Á iPad opnarðu bókamerkið <span class="ui">Hydra game entry</span> eða ýtir á táknið á heimaskjánum.</li>
         <li><b>Veldu leikinn:</b> tímabil → mót → leikur. Ef leikmannalisti hefur ekki verið skráður þarf fyrst að skrá hann í Aquila.</li>
-        <li><b>Verða skotin talin í símum?</b> Opnaðu þá <span class="ui">Meira</span> (<kbd>M</kbd>) → <span class="ui">Stillingar</span> og hakaðu við <span class="ui">Skot eru talin í skotatalningu</span>. Þá bætir kerfið ekki sjálfkrafa við skoti þegar þú skráir mark. Þau sem sjá um skotatalninguna skrá öll skot á mark.</li>
-        <li><b>Samstilltu klukkuna við leikklukkuna í höllinni.</b> Smelltu á klukkuna eða ýttu á <kbd>C</kbd>. Sláðu inn <kbd>2000</kbd> og ýttu á <kbd>Enter</kbd> til að stilla hana á 20:00. Bilsláin (<kbd>Space</kbd>) ræsir og stöðvar klukkuna. Hver færsla fær sjálfkrafa tímann sem klukkan sýnir, en þú getur breytt honum í skráningarforminu.</li>
-        <li><b>Uppfærðu stöðu leiksins.</b> Ýttu á <kbd>N</kbd> og veldu <span class="ui">Hefja upphitun</span> þegar upphitun hefst, <span class="ui">Ljúka upphitun</span> þegar henni lýkur og <span class="ui">Hefja 1. lotu</span> við fyrsta uppkast.</li>
+        <li><b>Verða skotin talin í símum?</b> Smelltu þá á <span class="ui">Áhorfendur · Bestu leikmenn · Myndband · Spjall</span> neðst til hægri, veldu flipann <span class="ui">Stillingar</span> og hakaðu við <span class="ui">Skot eru talin í skotatalningu</span>. Þá bætir kerfið ekki sjálfkrafa við skoti þegar þú skráir mark. Þau sem sjá um skotatalninguna skrá öll skot á mark.</li>
+        <li><b>Samstilltu klukkuna við leikklukkuna í höllinni.</b> Smelltu á tímann á klukkunni, sláðu inn <b>2000</b> og ýttu á Enter (eða smelltu annars staðar) til að stilla hana á 20:00. <span class="ui">▶ Ræsa</span> undir klukkunni setur hana af stað og <span class="ui">❚❚ Stöðva</span> stöðvar hana. Hver færsla fær sjálfkrafa tímann sem klukkan sýnir, en þú getur breytt honum í skráningarforminu.</li>
+        <li><b>Uppfærðu stöðu leiksins.</b> Smelltu á bláa hnappinn neðst til hægri, <span class="ui">Hefja upphitun</span>, þegar upphitun hefst og svo aftur á <span class="ui">Hefja upphitun</span> í glugganum sem opnast. Eins með <span class="ui">Ljúka upphitun</span> þegar henni lýkur og <span class="ui">Hefja 1. lotu</span> við fyrsta uppkast.</li>
       </ol>
 
       <h3>Meðan á leik stendur</h3>
       <div class="cards">
         <div class="act c-goal">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-puck"/></svg></span><div><b>Mark</b><small>Goal</small></div></div>
-          <div class="recipe"><kbd>G</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer markaskorara</span><span class="then">›</span><span class="slot">númer þeirra sem áttu stoðsendingar</span><span class="or">eða</span><kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
-          <p><kbd>H</kbd> merkir heimalið og <kbd>A</kbd> gesti. Kerfið velur sjálfkrafa <b>EQ</b>, <b>PP</b> eða <b>SH</b> út frá skráðum brottvísunum:</p>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl goal">MARK</span><span class="or">hjá liðinu sem skoraði</span><span class="then">›</span><span class="slot">markaskorari</span><span class="then">›</span><span class="slot">þau sem áttu stoðsendingar</span><span class="or">eða</span><span class="bl">Án stoðsendingar</span><span class="then">›</span><span class="bl pri">Vista mark</span></div>
+          <p>Kerfið velur sjálfkrafa <b>EQ</b>, <b>PP</b> eða <b>SH</b> út frá skráðum brottvísunum. Smelltu á annan kost ef þarf:</p>
           <ul class="plain small">
             <li><b>EQ:</b> jafnmargir útileikmenn hjá báðum liðum.</li>
             <li><b>PP:</b> liðið sem skorar er í yfirtölu, þ.e. með fleiri útileikmenn.</li>
             <li><b>SH:</b> liðið sem skorar er í undirtölu, þ.e. með færri útileikmenn.</li>
           </ul>
-          <p>Þú getur breytt valinu með <kbd>E</kbd>, <kbd>P</kbd> eða <kbd>S</kbd>. Við mark í yfirtölu lýkur kerfið viðeigandi tveggja mínútna brottvísun (<i>minor</i>) sjálfkrafa.</p>
+          <p>Við mark í yfirtölu lýkur kerfið viðeigandi tveggja mínútna brottvísun (<i>minor</i>) sjálfkrafa.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Lyklaborð:</span><kbd>G</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>númer<span class="then">›</span>númer eða <kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-pen">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-whistle"/></svg></span><div><b>Brottvísun</b><small>Penalty</small></div></div>
-          <div class="recipe"><kbd>P</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer leikmanns</span><span class="then">›</span><span class="slot">brot, t.d. trip</span><span class="then">›</span><kbd>Enter</kbd><span class="then">›</span><kbd>Enter</kbd></div>
-          <p><b>Bekkjarrefsing:</b> Veldu <span class="ui">T Bekkur</span> í stað leikmanns.</p>
-          <p>Valkostirnir <span class="ui">Samtímis</span> fyrir samtímis brottvísanir og <span class="ui">Vítaskot</span> eru neðst í skráningarforminu. Heiti brota og brottvísana eru á ensku, eins og í Hydra og á leikskýrslunni.</p>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl pen">BROTTVÍSUN</span><span class="or">hjá liði leikmannsins</span><span class="then">›</span><span class="slot">leikmaður</span><span class="or">eða</span><span class="bl">T Bekkur</span><span class="then">›</span><span class="slot">brot, t.d.</span><span class="bl">TRIP</span><span class="then">›</span><span class="bl pri">Vista brottvísun</span></div>
+          <p>Algengustu brotin eru sýnd sem hnappar; önnur finnurðu með því að skrifa í leitarreitinn (t.d. <i>hook</i>). Tegundin (<i>Minor</i>) er valin sjálfkrafa – smelltu á aðra ef þarf, t.d. <i>Major</i>.</p>
+          <p>Valkostirnir <span class="ui">Samtímis</span> fyrir samtímis brottvísanir og <span class="ui">Vítaskot</span> eru neðst í forminu. Heiti brota og brottvísana eru á ensku, eins og í Hydra og á leikskýrslunni.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Lyklaborð:</span><kbd>P</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>númer<span class="then">›</span>brot<span class="then">›</span><kbd>Enter</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-shot">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-sticks"/></svg></span><div><b>Skot á mark</b><small>Shot</small></div></div>
-          <ul class="plain small">
-            <li><kbd>←</kbd> skráir skot á mark hjá heimaliði.</li>
-            <li><kbd>→</kbd> skráir skot á mark hjá gestum.</li>
-            <li><kbd>S</kbd> velur leikmanninn sem skaut.</li>
-          </ul>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl shot">+ SKOT</span><span class="or">hjá liðinu sem skaut – eitt skot á mark</span></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Velja skyttu…</span><span class="then">›</span><span class="slot">leikmaðurinn sem skaut</span><span class="or">– ef skrá á hver skaut</span></div>
           <p>Þegar þú skráir mark bætir kerfið sjálfkrafa við skoti á mark, nema sérstök skotatalning sé virk.</p>
-          <p><b>Ef skotin eru talin í símum</b> eru skotahnapparnir faldir á skráningarskjá ritarans. Þú skráir þá engin skot; þau sem sjá um skotatalninguna skrá þau öll.</p>
+          <p><b>Ef skotin eru talin í símum</b> stendur <span class="ui">Skot: í skotatalningu</span> á hnappnum og þú skráir engin skot; þau sem sjá um skotatalninguna skrá þau öll.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Lyklaborð:</span><kbd>←</kbd> heimalið<span class="or">·</span><kbd>→</kbd> gestir<span class="or">·</span><kbd>S</kbd> velja skyttu</div>
         </div>
         <div class="act c-goalie">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-mask"/></svg></span><div><b>Markvörður</b><small>Goalie</small></div></div>
-          <div class="recipe"><kbd>K</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">númer nýja markvarðarins</span><span class="or">eða</span><kbd>E</kbd><span class="or">fyrir autt mark</span></div>
-          <p>Færslan vistast um leið og þú velur númerið. Þegar markvörðurinn kemur aftur inn á ísinn ýtirðu á <kbd>K</kbd> og velur númerið hans.</p>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Markvörður</span><span class="or">hjá liðinu, eða <span class="ui">Markvörður #30</span> efst</span><span class="then">›</span><span class="bl pri">#1 Nafn í stað #30</span><span class="or">eða</span><span class="bl">Taka markvörð út af (autt mark)</span></div>
+          <p>Færslan vistast um leið og þú smellir. Þegar markvörðurinn kemur aftur inn á ísinn smellirðu aftur á <span class="ui">Markvörður</span> og velur hann.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Lyklaborð:</span><kbd>K</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>númer eða <kbd>E</kbd> fyrir autt mark</div>
         </div>
         <div class="act c-to">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-timer"/></svg></span><div><b>Leikhlé</b><small>Timeout</small></div></div>
-          <div class="recipe"><kbd>T</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><kbd>Enter</kbd></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Leikhlé</span><span class="or">hjá liðinu</span><span class="then">›</span><span class="bl pri">Vista</span></div>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Lyklaborð:</span><kbd>T</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-pen">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Refsibekkur</b><small>Penalty box</small></div></div>
-          <p style="margin-top:0">Þegar refsitíminn er liðinn færist brottvísunin undir <span class="ui">Refsitími liðinn</span>. Ýttu á <span class="ui">Ljúka á …</span> til að ljúka henni eða <span class="ui">Ljúka öllum</span> til að ljúka öllum brottvísunum sem þar eru.</p>
+          <p style="margin-top:0">Þegar refsitíminn er liðinn færist brottvísunin undir <span class="ui">Refsitími liðinn</span>. Smelltu á <span class="ui">Ljúka á …</span> til að ljúka henni eða <span class="ui">Ljúka öllum</span> til að ljúka öllum sem þar eru. Til að ljúka brottvísun fyrr smellirðu á <span class="ui">Ljúka…</span> við hana.</p>
           <p>Brottvísun telst enn ólokin í Hydra þar til þú lýkur skráningu hennar.</p>
         </div>
-        <div class="act c-neutral">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>Fleiri aðgerðir</b><small>Meira · <kbd>M</kbd></small></div></div>
-          <p style="margin-top:0">Opnaðu <span class="ui">Meira</span> eða ýttu á <kbd>M</kbd> til að skrá myndbandsyfirferð, beiðni þjálfara um endurskoðun dóms, áhorfendafjölda og bestu leikmenn. Þar finnurðu einnig spjallið í Hydra og stillingar.</p>
+        <div class="act c-accent">
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-tap"/></svg></span><div><b>Fljótleið um leikmannalistann</b><small>Leikmenn til hliðar</small></div></div>
+          <p style="margin-top:0">Smelltu á leikmann í leikmannalista liðsins. Þá birtast hnapparnir <span class="ui">Mark</span>, <span class="ui">Brottvísun</span> og <span class="ui">+ Skot</span> og formið opnast með leikmanninn þegar valinn.</p>
         </div>
         <div class="act c-warn">
           <div class="act-h"><span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><div><b>Leiðrétting mistaka</b><small>Afturkalla · breyta · eyða</small></div></div>
-          <p style="margin-top:0"><b>Strax eftir skráningu:</b> Ýttu á <span class="ui">Afturkalla</span> í tilkynningunni neðst á skjánum innan þriggja sekúndna.</p>
-          <p><b>Síðar:</b> Veldu færsluna í <span class="ui">Atvik leiksins</span> til að breyta henni eða eyða. Til að eyða færslu þarf að ýta tvisvar á eyðingarhnappinn.</p>
+          <p style="margin-top:0"><b>Strax eftir skráningu:</b> Smelltu á <span class="ui">Afturkalla</span> í tilkynningunni neðst á skjánum innan þriggja sekúndna.</p>
+          <p><b>Síðar:</b> Smelltu á færsluna í <span class="ui">Atvik leiksins</span> til að breyta henni eða eyða. Til að eyða færslu þarf að smella tvisvar á eyðingarhnappinn.</p>
+        </div>
+        <div class="act c-neutral">
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>Fleiri aðgerðir</b><small>Neðst til hægri</small></div></div>
+          <p style="margin-top:0">Smelltu á <span class="ui">Áhorfendur · Bestu leikmenn · Myndband · Spjall</span> neðst til hægri til að skrá áhorfendafjölda, bestu leikmenn, myndbandsyfirferð og beiðni þjálfara um endurskoðun dóms. Þar eru einnig spjallið í Hydra og <span class="ui">Stillingar</span>.</p>
         </div>
       </div>
-      <div class="callout"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Númer og flýtilyklar:</b> Sláðu leikmannanúmer beint inn. Til dæmis velur <kbd>8</kbd> og síðan <kbd>1</kbd> leikmann númer 81. <kbd>Esc</kbd> lokar skráningarforminu án þess að vista. <kbd>?</kbd> sýnir alla flýtilykla.</p></div></div>
+      <div class="callout c-neutral"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Viltu nota lyklaborð? (valfrjálst)</b> Flýtilyklarnir eru sýndir í gráu línunum hér að ofan og á hnöppunum í útlitinu <span class="ui">Lyklaborð</span>. Sláðu leikmannanúmer beint inn – <kbd>8</kbd> og síðan <kbd>1</kbd> velur leikmann númer 81. <kbd>Enter</kbd> vistar, <kbd>Esc</kbd> lokar forminu án þess að vista og <kbd>?</kbd> sýnir alla flýtilykla.</p></div></div>
 
       <div class="two">
         <div>
           <h3>Í lok lotu</h3>
           <ol class="steps">
-            <li>Ýttu á <kbd>N</kbd> og veldu <span class="ui">Ljúka 1. lotu</span> (2. lotu, 3. lotu). Viðvörun birtist ef fleiri mörk en skot á mark hafa verið skráð hjá öðru liðinu.</li>
-            <li>Ýttu aftur á <kbd>N</kbd> til að hefja næstu lotu. Klukkan stillist og fer af stað sjálfkrafa.</li>
+            <li>Smelltu á <span class="ui">Ljúka 1. lotu</span> neðst til hægri og staðfestu í glugganum sem opnast. Viðvörun birtist ef fleiri mörk en skot á mark hafa verið skráð hjá öðru liðinu.</li>
+            <li>Smelltu á <span class="ui">Hefja 2. lotu</span> þegar næsta lota hefst. Klukkan stillist og fer af stað sjálfkrafa.</li>
           </ol>
         </div>
         <div>
           <h3>Í lok leiks</h3>
           <ol class="steps">
-            <li><b>Er staðan jöfn?</b> Ýttu á <kbd>N</kbd>. Kerfið býður fyrst upp á framlengingu og síðan vítakeppni. Í U14 er farið beint í vítakeppni.</li>
-            <li>Ýttu á <kbd>M</kbd> og skráðu áhorfendafjölda og bestu leikmenn.</li>
-            <li>Ýttu á <kbd>N</kbd> og veldu <span class="ui">Leik lokið</span>. Ef einhverjum brottvísunum hefur ekki verið lokið birtist listi yfir þær. Ýttu fyrst á <span class="ui">Ljúka öllum</span>.</li>
+            <li><b>Er staðan jöfn?</b> Hnappurinn neðst til hægri býður fyrst <span class="ui">Hefja framlengingu</span> og síðan <span class="ui">Hefja vítakeppni</span>. Í U14 er farið beint í vítakeppni.</li>
+            <li>Smelltu á <span class="ui">Áhorfendur · Bestu leikmenn · Myndband · Spjall</span> og skráðu áhorfendafjölda og bestu leikmenn.</li>
+            <li>Smelltu á <span class="ui">Leik lokið</span>. Ef einhverjum brottvísunum hefur ekki verið lokið birtist listi yfir þær. Smelltu fyrst á <span class="ui">Ljúka öllum</span>.</li>
           </ol>
         </div>
       </div>
 
       <h3>Vítakeppni</h3>
       <ol class="steps">
-        <li>Ýttu á <kbd>O</kbd> eða veldu <span class="ui">Hefja vítakeppni</span>. Veldu liðið sem tekur fyrsta vítaskotið, markverði beggja liða og allt að fimm skyttur úr hvoru liði í þeirri röð sem þær eiga að skjóta. Veldu síðan <span class="ui">Vista og hefja</span>.</li>
-        <li>Skráðu niðurstöðu hvers vítaskots með viðeigandi lykli:
+        <li>Smelltu á <span class="ui">Hefja vítakeppni</span> neðst til hægri. Veldu liðið sem tekur fyrsta vítaskotið, markverði beggja liða og allt að fimm skyttur úr hvoru liði í þeirri röð sem þær eiga að skjóta. Smelltu síðan á <span class="ui">Vista og hefja</span>. Hnappurinn <span class="ui">Vítakeppni</span> neðst opnar gluggann aftur.</li>
+        <li>Smelltu á niðurstöðu hvers vítaskots:
           <table class="keys">
-            <tr><td><kbd>G</kbd></td><td>Mark</td><td><kbd>S</kbd></td><td>Varið</td></tr>
-            <tr><td><kbd>P</kbd></td><td>Í stöng</td><td><kbd>H</kbd></td><td>Yfir markið</td></tr>
-            <tr><td><kbd>L</kbd></td><td>Framhjá vinstra megin</td><td><kbd>R</kbd></td><td>Framhjá hægra megin</td></tr>
-            <tr><td><kbd>X</kbd></td><td>Skyttan missti pökkinn</td><td></td><td></td></tr>
+            <tr><td><span class="bl goal">Mark</span></td><td><kbd>G</kbd></td><td><span class="bl">Varið</span></td><td><kbd>S</kbd></td></tr>
+            <tr><td><span class="bl">Í stöng</span></td><td><kbd>P</kbd></td><td><span class="bl">Yfir markið</span></td><td><kbd>H</kbd></td></tr>
+            <tr><td><span class="bl">Framhjá vinstra megin</span></td><td><kbd>L</kbd></td><td><span class="bl">Framhjá hægra megin</span></td><td><kbd>R</kbd></td></tr>
+            <tr><td><span class="bl">Skyttan missti pökkinn</span></td><td><kbd>X</kbd></td><td></td><td></td></tr>
           </table>
         </li>
-        <li>Þegar úrslit liggja fyrir velurðu <span class="ui">Merkja sigurmark</span>. Kerfið leggur til hvaða mark eigi að merkja sem sigurmark. Ef staðan er enn jöfn eftir að allar valdar skyttur hafa skotið velurðu <span class="ui">Velja næstu skyttur</span>.</li>
+        <li>Þegar úrslit liggja fyrir smellirðu á <span class="ui">Merkja sigurmark</span>. Kerfið leggur til hvaða mark eigi að merkja sem sigurmark. Ef staðan er enn jöfn eftir að allar valdar skyttur hafa skotið smellirðu á <span class="ui">Velja næstu skyttur</span>.</li>
       </ol>
     </div>
   </section>
@@ -464,7 +568,7 @@
         <em>Fixes →</em>
       </a>
     </nav>
-    <div class="uinote"><svg class="i"><use href="#i-info"/></svg><div>The screen opens in Icelandic: press <span class="ui">EN</span> at the top (or <span class="ui">⋯</span> on the phone screen) to switch to English. Buttons are named below as they appear in English, e.g. <span class="ui">Undo</span>; keyboard shortcuts look like this: <kbd>G</kbd>. Penalty codes and infractions are always in English, as in Hydra.</div></div>
+    <div class="uinote"><svg class="i"><use href="#i-tap"/></svg><div><b>Click or tap:</b> everything is done by clicking with the mouse or tapping the screen; the arrow <span class="then">›</span> shows the order. Keyboard shortcuts (<kbd>G</kbd>) are optional and shown in grey lines. The screen opens in Icelandic: press <span class="ui">EN</span> at the top (or <span class="ui">⋯</span> on the phone screen) for English. Penalty codes and infractions are always in English, as in Hydra.</div></div>
   </section>
 
   <section class="role c-accent" id="en-main">
@@ -472,82 +576,135 @@
       <span class="ic"><svg class="i"><use href="#i-laptop"/></svg></span>
       <div>
         <h2>Main operator</h2>
-        <p>Enters everything that happens in the game. Keyboard or touch – choose <span class="ui">Touch</span> or <span class="ui">Keyboard</span> at the top of the screen.</p>
+        <p>Enters everything that happens in the game. Everything is done by clicking with the mouse or tapping the screen. Choose <span class="ui">Touch</span> at the top for larger buttons on a touch screen, or <span class="ui">Keyboard</span> for a compact layout.</p>
       </div>
     </div>
     <div class="role-body">
+      <h3>The screen</h3>
+      <div class="map" aria-hidden="true">
+        <div class="map-in">
+          <div class="m-top"><span class="m-logo"></span><b>Game entry</b><span class="m-badge m-rel"><i class="dot"></i>Saved · 5 s ago<i class="mpin">1</i></span><span class="m-sp"></span><span class="m-chip">Touch · Keyboard</span><span class="m-chip">ÍS</span><span class="m-chip">Games</span><span class="m-chip">Shots bench</span></div>
+          <div class="m-score">
+            <div class="m-team" style="--c:#0b63c4"><b>SR</b><span class="m-pill">Goalie #30</span><span class="m-big">2</span></div>
+            <div class="m-clock m-rel"><span class="m-period">PERIOD 1</span><span class="m-time">14:32</span><span class="m-start">▶ Start</span><i class="mpin">2</i></div>
+            <div class="m-team" style="--c:#c4421a"><span class="m-big">1</span><b>SA</b><span class="m-pill">Goalie #31</span></div>
+          </div>
+          <div class="m-main">
+            <div class="m-roster m-rel"><b>SR LINE-UP</b><span><em>4</em> Kárason</span><span><em>5</em> Viktorsson</span><span><em>7</em> Loftsson</span><span><em>9</em> Friðriksson</span><span><em>10</em> Magnússon</span><span><em>11</em> Jónsson</span><i class="mpin">3</i></div>
+            <div class="m-center">
+              <div class="m-pads m-rel">
+                <div class="m-pad" style="--c:#0b63c4"><span class="m-btn goal">GOAL</span><span class="m-btn pen">PENALTY</span><span class="m-btn shot">+ SHOT</span><span class="m-smalls"><span class="m-sm">Shot by…</span><span class="m-sm">Goalie</span><span class="m-sm">Timeout</span></span></div>
+                <div class="m-pad" style="--c:#c4421a"><span class="m-btn goal">GOAL</span><span class="m-btn pen">PENALTY</span><span class="m-btn shot">+ SHOT</span><span class="m-smalls"><span class="m-sm">Shot by…</span><span class="m-sm">Goalie</span><span class="m-sm">Timeout</span></span></div>
+                <i class="mpin">4</i>
+              </div>
+              <div class="m-panel m-rel"><b>PENALTY BOX</b><span class="m-ev" style="--c:#c4421a"><em>1:12</em> SA #4 TRIP<span class="m-sp"></span><span class="m-sm">End…</span></span><i class="mpin">5</i></div>
+              <div class="m-panel m-rel"><b>GAME ACTIONS</b><span class="m-ev" style="--c:#0b63c4"><em>14:40</em> Goal · SR 2–1 · #9 Friðriksson</span><span class="m-ev" style="--c:#c4421a"><em>16:12</em> Penalty · SA #4 TRIP</span><i class="mpin">6</i></div>
+            </div>
+            <div class="m-roster"><b>SA LINE-UP</b><span><em>2</em> Jónsson</span><span><em>3</em> Guðmundsson</span><span><em>8</em> Tómasson</span><span><em>24</em> Ólafsson</span><span><em>55</em> Kárason</span><span><em>77</em> Birgisson</span></div>
+          </div>
+          <div class="m-bar"><span class="m-stage">Period 1</span><span>Attendance 412</span><span class="m-sp"></span><span class="m-next m-rel">End period 1<i class="mpin">7</i></span><span class="m-more m-rel">Attendance · Best players · Review · Chat<i class="mpin">8</i></span></div>
+        </div>
+      </div>
+      <ol class="legend cols2">
+        <li><b>Status badge.</b> Shows whether everything is in Hydra. Click it to see entries that are waiting.</li>
+        <li><b>The clock.</b> Click the time to set it. <span class="ui">▶ Start</span> / <span class="ui">❚❚ Stop</span> underneath.</li>
+        <li><b>Line-ups.</b> Click a player to get <span class="ui">Goal</span>, <span class="ui">Penalty</span> and <span class="ui">+ Shot</span> buttons for them.</li>
+        <li><b>Each team's buttons.</b> Home team on the left, away team on the right.</li>
+        <li><b>The penalty box.</b> Running penalties and the ones that need ending.</li>
+        <li><b>Game actions.</b> Click an entry to edit or delete it.</li>
+        <li><b>Next game status.</b> For example <span class="ui">Start pre-game</span>, <span class="ui">End period 1</span> or <span class="ui">Game complete</span>.</li>
+        <li><b>More.</b> Attendance, best players, video review, chat and settings.</li>
+      </ol>
+
       <h3>Before the game</h3>
       <ol class="steps">
         <li><b>Open game entry.</b> Log in to Hydra. Laptop: click <span class="ui">Open game entry ↗</span> in Hydra's menu. iPad: the <span class="ui">Hydra game entry</span> bookmark or home-screen icon.</li>
         <li><b>Pick the game:</b> season → competition → game. If there is no line-up yet, enter it in Aquila first.</li>
-        <li><b>Are shots counted on phones?</b> Then open <span class="ui">More</span> (<kbd>M</kbd>) → <span class="ui">Settings</span> and tick <span class="ui">Shots are counted on the shots bench</span>. Your screen then adds no shot for each goal – the shot counters do all shots.</li>
-        <li><b>Set the clock to the scoreboard.</b> Click it (or <kbd>C</kbd>), type <kbd>2000</kbd>, <kbd>Enter</kbd>. <kbd>Space</kbd> starts and stops it. Every entry takes its time from this clock; you can change it in each form.</li>
-        <li><b>Game status:</b> <kbd>N</kbd> → <span class="ui">Start pre-game</span> at warm-up, <span class="ui">End pre-game</span> after it, and <span class="ui">Start period 1</span> at the first face-off.</li>
+        <li><b>Are shots counted on phones?</b> Then click <span class="ui">Attendance · Best players · Review · Chat</span> at the bottom right, open the <span class="ui">Settings</span> tab and tick <span class="ui">Shots are counted on the shots bench</span>. Your screen then adds no shot for each goal – the shot counters do all shots.</li>
+        <li><b>Set the clock to the scoreboard.</b> Click the time on the clock, type <b>2000</b> and press Enter (or click elsewhere) to set it to 20:00. <span class="ui">▶ Start</span> under the clock starts it and <span class="ui">❚❚ Stop</span> stops it. Every entry takes its time from this clock; you can change it in each form.</li>
+        <li><b>Game status.</b> Click the blue button at the bottom right, <span class="ui">Start pre-game</span>, when the warm-up starts, then <span class="ui">Start pre-game</span> again in the window that opens. The same for <span class="ui">End pre-game</span> after it and <span class="ui">Start period 1</span> at the first face-off.</li>
       </ol>
 
       <h3>During play</h3>
       <div class="cards">
         <div class="act c-goal">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-puck"/></svg></span><div><b>Goal</b><small>Goal</small></div></div>
-          <div class="recipe"><kbd>G</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">scorer's no.</span><span class="then">›</span><span class="slot">assist nos.</span><span class="or">or</span><kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
-          <p><kbd>H</kbd> = home, <kbd>A</kbd> = away. The situation (<b>EQ</b>, <b>PP</b>, <b>SH</b>) is filled in from the penalty box – change it with <kbd>E</kbd> / <kbd>P</kbd> / <kbd>S</kbd>. A power-play goal ends the minor by itself.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-puck"/></svg></span><div><b>Goal</b></div></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl goal">GOAL</span><span class="or">of the team that scored</span><span class="then">›</span><span class="slot">scorer</span><span class="then">›</span><span class="slot">assists</span><span class="or">or</span><span class="bl">Unassisted</span><span class="then">›</span><span class="bl pri">Save goal</span></div>
+          <p>The situation (<b>EQ</b>, <b>PP</b>, <b>SH</b>) is filled in from the penalty box – click another one if needed. A power-play goal ends the minor by itself.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Keyboard:</span><kbd>G</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>number<span class="then">›</span>numbers or <kbd>U</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-pen">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-whistle"/></svg></span><div><b>Penalty</b><small>Penalty</small></div></div>
-          <div class="recipe"><kbd>P</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">player's no.</span><span class="then">›</span><span class="slot">infraction, e.g. trip</span><span class="then">›</span><kbd>Enter</kbd><kbd>Enter</kbd></div>
-          <p>Bench penalty: pick <span class="ui">T Bench</span> instead of a player. <span class="ui">Coincidental</span> and <span class="ui">Penalty shot</span> are at the bottom of the form.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-whistle"/></svg></span><div><b>Penalty</b></div></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl pen">PENALTY</span><span class="or">of the player's team</span><span class="then">›</span><span class="slot">player</span><span class="or">or</span><span class="bl">T Bench</span><span class="then">›</span><span class="slot">infraction, e.g.</span><span class="bl">TRIP</span><span class="then">›</span><span class="bl pri">Save penalty</span></div>
+          <p>The most common infractions are buttons; find others by typing in the search box (e.g. <i>hook</i>). The type (<i>Minor</i>) is picked for you – click another if needed. <span class="ui">Coincidental</span> and <span class="ui">Penalty shot</span> are at the bottom of the form.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Keyboard:</span><kbd>P</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>number<span class="then">›</span>infraction<span class="then">›</span><kbd>Enter</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-shot">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-sticks"/></svg></span><div><b>Shot on goal</b><small>Shot</small></div></div>
-          <div class="recipe"><kbd>←</kbd><span class="or">home</span><kbd>→</kbd><span class="or">away</span><span class="or">·</span><kbd>S</kbd><span class="or">pick the shooter</span></div>
-          <p>A goal adds a shot by itself. <b>If shots are counted on phones</b> the shot buttons are hidden on your screen and you enter no shots.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-sticks"/></svg></span><div><b>Shot on goal</b></div></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl shot">+ SHOT</span><span class="or">of the team that shot – one shot on goal</span></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Shot by…</span><span class="then">›</span><span class="slot">the shooter</span><span class="or">– to record who shot</span></div>
+          <p>A goal adds a shot by itself. <b>If shots are counted on phones</b> the button reads <span class="ui">Shots: on the bench</span> and you enter no shots.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Keyboard:</span><kbd>←</kbd> home<span class="or">·</span><kbd>→</kbd> away<span class="or">·</span><kbd>S</kbd> pick the shooter</div>
         </div>
         <div class="act c-goalie">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-mask"/></svg></span><div><b>Goalie</b><small>Goalie</small></div></div>
-          <div class="recipe"><kbd>K</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><span class="slot">new goalie's no.</span><span class="or">or</span><kbd>E</kbd><span class="or">empty net</span></div>
-          <p>Saved as soon as the number is picked. When the goalie comes back: <kbd>K</kbd> and their number.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-mask"/></svg></span><div><b>Goalie</b></div></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Goalie</span><span class="or">of the team, or <span class="ui">Goalie #30</span> at the top</span><span class="then">›</span><span class="bl pri">#1 Name replaces #30</span><span class="or">or</span><span class="bl">Pull goalie (empty net)</span></div>
+          <p>Saved as soon as you click. When the goalie comes back, click <span class="ui">Goalie</span> again and pick them.</p>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Keyboard:</span><kbd>K</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span>number, or <kbd>E</kbd> for an empty net</div>
         </div>
         <div class="act c-to">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-timer"/></svg></span><div><b>Timeout</b><small>Timeout</small></div></div>
-          <div class="recipe"><kbd>T</kbd><span class="then">›</span><kbd>H</kbd><span class="or">/</span><kbd>A</kbd><span class="then">›</span><kbd>Enter</kbd></div>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-timer"/></svg></span><div><b>Timeout</b></div></div>
+          <div class="how"><svg class="i"><use href="#i-tap"/></svg><span class="bl">Timeout</span><span class="or">of the team</span><span class="then">›</span><span class="bl pri">Save</span></div>
+          <div class="keysline"><svg class="i"><use href="#i-keyboard"/></svg><span class="lab">Keyboard:</span><kbd>T</kbd><span class="then">›</span><kbd>H</kbd>/<kbd>A</kbd><span class="then">›</span><kbd>Enter</kbd></div>
         </div>
         <div class="act c-pen">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Penalty box</b><small>Penalty box</small></div></div>
-          <p style="margin-top:0">When a penalty's time is up it moves to <span class="ui">Time's up</span>: tap <span class="ui">End at …</span> or <span class="ui">End all</span>. Hydra keeps a penalty open until it is ended.</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-clock"/></svg></span><div><b>Penalty box</b></div></div>
+          <p style="margin-top:0">When a penalty's time is up it moves to <span class="ui">Time's up</span>: click <span class="ui">End at …</span> or <span class="ui">End all</span>. To end one early, click <span class="ui">End…</span> next to it. Hydra keeps a penalty open until it is ended.</p>
         </div>
-        <div class="act c-neutral">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>More</b><small>More · <kbd>M</kbd></small></div></div>
-          <p style="margin-top:0">Video review and coach's challenge, attendance, best players, Hydra chat and settings.</p>
+        <div class="act c-accent">
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-tap"/></svg></span><div><b>Shortcut: the line-ups</b></div></div>
+          <p style="margin-top:0">Click a player in a team's line-up: <span class="ui">Goal</span>, <span class="ui">Penalty</span> and <span class="ui">+ Shot</span> appear, and the form opens with that player already picked.</p>
         </div>
         <div class="act c-warn">
-          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><div><b>Mistakes</b><small>Undo · edit · delete</small></div></div>
-          <p style="margin-top:0"><b>Right away:</b> <span class="ui">Undo</span> in the message at the bottom (3 seconds). <b>Later:</b> tap the entry in <span class="ui">Game actions</span> to edit or delete it (delete = tap twice).</p>
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-undo"/></svg></span><div><b>Mistakes</b></div></div>
+          <p style="margin-top:0"><b>Right away:</b> click <span class="ui">Undo</span> in the message at the bottom (3 seconds). <b>Later:</b> click the entry in <span class="ui">Game actions</span> to edit or delete it (delete = click twice).</p>
+        </div>
+        <div class="act c-neutral">
+          <div class="act-h"><span class="ic"><svg class="i"><use href="#i-dots"/></svg></span><div><b>More</b><small>Bottom right</small></div></div>
+          <p style="margin-top:0">Click <span class="ui">Attendance · Best players · Review · Chat</span> at the bottom right for attendance, best players, video review and coach's challenge, Hydra chat and <span class="ui">Settings</span>.</p>
         </div>
       </div>
-      <div class="callout"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Numbers: just type them</b> – <kbd>8</kbd><kbd>1</kbd> picks #81.  <kbd>Esc</kbd> closes a form without saving.  <kbd>?</kbd> shows every shortcut.</p></div></div>
+      <div class="callout c-neutral"><svg class="i"><use href="#i-keyboard"/></svg><div><p><b>Prefer the keyboard? (optional)</b> The shortcuts are in the grey lines above and on the buttons in the <span class="ui">Keyboard</span> layout. Type jersey numbers directly – <kbd>8</kbd> then <kbd>1</kbd> picks #81. <kbd>Enter</kbd> saves, <kbd>Esc</kbd> closes a form without saving, <kbd>?</kbd> shows every shortcut.</p></div></div>
 
       <div class="two">
         <div>
           <h3>End of a period</h3>
           <ol class="steps">
-            <li><kbd>N</kbd> → <span class="ui">End period</span>. It warns you if a team has more goals than shots.</li>
-            <li><kbd>N</kbd> again to start the next period – the clock is set and started.</li>
+            <li>Click <span class="ui">End period 1</span> at the bottom right and confirm in the window that opens. It warns you if a team has more goals than shots.</li>
+            <li>Click <span class="ui">Start period 2</span> when the next period starts – the clock is set and started.</li>
           </ol>
         </div>
         <div>
           <h3>End of the game</h3>
           <ol class="steps">
-            <li><b>Tied?</b> <kbd>N</kbd> offers overtime, then the shootout (U14: straight to the shootout).</li>
-            <li><kbd>M</kbd> → attendance and best players.</li>
-            <li><kbd>N</kbd> → <span class="ui">Game complete</span>. Penalties still open are listed: tap <span class="ui">End all</span> first.</li>
+            <li><b>Tied?</b> The button at the bottom right offers <span class="ui">Start overtime</span>, then <span class="ui">Start shootout</span> (U14: straight to the shootout).</li>
+            <li>Click <span class="ui">Attendance · Best players · Review · Chat</span> and enter attendance and best players.</li>
+            <li>Click <span class="ui">Game complete</span>. Penalties still open are listed: click <span class="ui">End all</span> first.</li>
           </ol>
         </div>
       </div>
 
       <h3>Shootout</h3>
       <ol class="steps">
-        <li><kbd>O</kbd> (or <span class="ui">Start shootout</span>): the team that shoots first, the goalies, and up to 5 shooters per team in order → <span class="ui">Store and start</span>.</li>
-        <li>Each attempt: <kbd>G</kbd> scored · <kbd>S</kbd> saved · <kbd>P</kbd> post · <kbd>H</kbd> high · <kbd>L</kbd> wide left · <kbd>R</kbd> wide right · <kbd>X</kbd> lost the puck.</li>
+        <li>Click <span class="ui">Start shootout</span> at the bottom right. Pick the team that shoots first, the goalies, and up to 5 shooters per team in order, then <span class="ui">Store and start</span>. The <span class="ui">Shootout</span> button at the bottom opens it again.</li>
+        <li>Click the result of each attempt:
+          <table class="keys">
+            <tr><td><span class="bl goal">Scored</span></td><td><kbd>G</kbd></td><td><span class="bl">Saved</span></td><td><kbd>S</kbd></td></tr>
+            <tr><td><span class="bl">Missed – post</span></td><td><kbd>P</kbd></td><td><span class="bl">Missed – high</span></td><td><kbd>H</kbd></td></tr>
+            <tr><td><span class="bl">Missed – left</span></td><td><kbd>L</kbd></td><td><span class="bl">Missed – right</span></td><td><kbd>R</kbd></td></tr>
+            <tr><td><span class="bl">Lost the puck</span></td><td><kbd>X</kbd></td><td></td><td></td></tr>
+          </table>
+        </li>
         <li>When it is decided: <span class="ui">Mark game-winning goal</span> (the right goal is suggested). Still level after every shooter: <span class="ui">Nominate next shooters</span>.</li>
       </ol>
     </div>
@@ -641,7 +798,7 @@
 </main>
 
 <footer>
-  <span>ÍHÍ Game Entry for Hydra · 1.2.1</span>
+  <span>ÍHÍ Game Entry for Hydra · 1.2.2</span>
   <a href="./"><span class="lang-is">Uppsetning</span><span class="lang-en">Install</span></a>
 </footer>
 

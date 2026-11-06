@@ -49,7 +49,7 @@
     <img src="ihi.png" alt="ÍHÍ">
     <div>
       <h1>ÍHÍ Game Entry for Hydra</h1>
-      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.5.0 · built 2026-10-13 21:42 UTC</div>
+      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.5.1 · built 2026-11-06 03:35 UTC</div>
     </div>
   </header>
 
@@ -109,7 +109,17 @@
 
   <section data-panel="android" hidden>
     <div class="card">
-      <h2>Chrome — a bookmark</h2>
+      <h2>Option 1 — the ÍHÍ app (recommended)</h2>
+      <p><a class="btn primary" href="ihi-hydra.apk" download>Download ihi-hydra.apk</a> <span class="muted">Android 8 or newer · about 230 KB</span></p>
+      <ol>
+        <li>Open the downloaded file. Android asks to allow installing apps from your browser: allow it once, then <b>Install</b>.</li>
+        <li>Two icons appear: <b>Leikskráning</b> (the main screen) and <b>Skotatalning</b> (shot counting). Long-press Leikskráning for <b>Aðeins áhorf</b> (watch only).</li>
+        <li>Open one and log in on Hydra's own login page inside the app. The screen opens by itself and stays on while you count.</li>
+      </ol>
+      <div class="note">The app always loads the newest screens from this site – no app update needed when they change. It is not in Google Play, so Play Protect may ask you to confirm it the first time.</div>
+    </div>
+    <div class="card">
+      <h2>Option 2 — Chrome and a bookmark</h2>
       <ol>
         <li>Copy the bookmark code below.</li>
         <li>In Chrome, bookmark any page (☆), then edit the bookmark: name <b>Hydra game entry</b>, paste the code as the URL.</li>
@@ -118,7 +128,7 @@
       <div data-bookmarklets></div>
     </div>
     <div class="card">
-      <h2>Firefox — Tampermonkey (opens by itself)</h2>
+      <h2>Option 3 — Firefox and Tampermonkey (opens by itself)</h2>
       <ol>
         <li>Install Firefox for Android, then the <b>Tampermonkey</b> add-on.</li>
         <li>Open <a href="hydra-ui.user.js">hydra-ui.user.js</a> and install it in Tampermonkey.</li>

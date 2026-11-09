@@ -49,7 +49,7 @@
     <img src="ihi.png" alt="ÍHÍ">
     <div>
       <h1>ÍHÍ Game Entry for Hydra</h1>
-      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.7.0 · built 2026-11-09 04:50 UTC</div>
+      <div class="muted">A faster, touch-friendly screen for entering live game data into IIHF Hydra. Version 1.6.0 · built 2026-11-09 03:11 UTC</div>
     </div>
   </header>
 
@@ -165,7 +165,7 @@
   const code = (mode) =>
     "javascript:(()=>{if(!/\\.hydra\\.iihf\\.com$/.test(location.hostname)){alert('Log in to Hydra first, then tap this bookmark on a Hydra page.');return}" +
     "if(window.__hydraUi)return;history.replaceState(null,'','/IIHF_Core/hydra-ui" + (mode ? '?mode=' + mode : '') + "');" +
-    "var s=document.createElement('script');s.src='" + BASE + "hydra-ui.js';" +
+    "var s=document.createElement('script');s.src='" + BASE + "hydra-ui.js?v='+Date.now();" +
     "s.onerror=function(){alert('Could not load the game entry app. Check the internet connection.')};" +
     "(document.head||document.documentElement).appendChild(s)})()";
   const items = [
